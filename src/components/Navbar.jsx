@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import { MenuIcon } from 'lucide-react'
 
 const Navbar = () => {
@@ -46,6 +47,14 @@ const Navbar = () => {
             </button>
           </SheetTrigger>
           <SheetContent side="right" className="p-6">
+            <SheetHeader>
+              <SheetTitle>
+                <VisuallyHidden>Menu</VisuallyHidden>
+                </SheetTitle>
+              <SheetDescription>
+                <VisuallyHidden>Opciones de Menu</VisuallyHidden>
+              </SheetDescription>
+            </SheetHeader>
             <nav>
               <ul className="flex flex-col gap-4 py-6">
                 {menuItems.map(item => (
