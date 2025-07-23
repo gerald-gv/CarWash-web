@@ -19,6 +19,9 @@ const SwiperHero = () => {
             autoplay={{ delay: 4000, disableOnInteraction: false, }}
             loop
             className='h-full w-full'>
+
+                {/* Se recorre el array con map, accediendo a cada imagen (img) y su índice (i) */}
+                
                 {imagenes.map((img, i) => (
                     <SwiperSlide key={i}>
                         <img src={img.src} alt={img.alt} className='w-full h-full object-cover' />

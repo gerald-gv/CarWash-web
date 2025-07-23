@@ -6,9 +6,14 @@ const HeroSlider = () => {
     return (
         <section className="relative min-h-screen overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2 h-full">
+                
+                {/* Contenedor de Slider - Slider Hero */}
+
                 <div className="relative h-full w-full md:order-last">
                     <SwiperHero />
                 </div>
+
+                {/* Contenedor Hero - HeroSection */}
 
                 <div className="bg-sky-500 flex flex-col items-center justify-center p-8 text-center md:text-left md:items-start md:order-first">
                     <h1 className="text-white text-4xl md:text-6xl font-extrabold leading-tight mb-4">
