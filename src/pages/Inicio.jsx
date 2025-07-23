@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import HeroSlider from '../components/HeroSlider'
 const Inicio = () => {
   return (
-    <div>
+    <div className='min-h-screen flex flex-col'> 
       <Navbar />
       <HeroSlider />
     </div>
