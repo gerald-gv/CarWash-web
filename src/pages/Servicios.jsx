@@ -33,6 +33,9 @@ const Servicios = () => {
                         items={card.items}/>
           ))}
         </section>
+        <section className='other-services'>
+          <article></article>
+        </section>
       </main>
     </div>
   )
