@@ -5,7 +5,7 @@ import Inicio from './pages/Inicio';
 import Nosotros from './pages/Nosotros';
 import Servicios from './pages/Servicios';
 import FAQs from './pages/FAQs';
-import Layout from './components/layout';
+import Layout from './components/Layout';
 
 function App() {
   return (
