@@ -3,9 +3,8 @@
   "style": "new-york",
   "rsc": false,
   "tsx": false,
-  "componentPath": "src/components/ui",
   "tailwind": {
-    "config": "",
+    "config": "tailwind.config.js",
     "css": "src/index.css",
     "baseColor": "slate",
     "cssVariables": true,
