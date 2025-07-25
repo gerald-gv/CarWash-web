@@ -21,7 +21,6 @@ const Servicios = () => {
   ];
   return (
     <div>
-      <Navbar />
       <main className='main-section'>
         <section className='main-services'>
           {cardsData.map((card, index) => (

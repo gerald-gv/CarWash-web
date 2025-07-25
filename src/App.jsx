@@ -5,14 +5,17 @@ import Inicio from './pages/Inicio';
 import Nosotros from './pages/Nosotros';
 import Servicios from './pages/Servicios';
 import FAQs from './pages/FAQs';
+import Layout from './components/layout';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Inicio />} />
-      <Route path="/nosotros" element={<Nosotros />} />
-      <Route path="/servicios" element={<Servicios />} />
-      <Route path="/faqs" element={<FAQs />} />
+      <Route path='/' element={<Layout/>}>
+        <Route index element={<Inicio />} />
+        <Route path="/nosotros" element={<Nosotros />} />
+        <Route path="/servicios" element={<Servicios />} />
+        <Route path="/faqs" element={<FAQs />} />
+      </Route>
     </Routes>
   )
 }
