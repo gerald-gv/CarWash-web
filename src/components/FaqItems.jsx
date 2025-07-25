@@ -8,7 +8,7 @@ const FaqItems = () => {
       {/* ¿Qué tipos de servicios de lavado ofrecen? */}
 
       <AccordionItem value="item-1">
-        <AccordionTrigger className="text-lg font-medium text-foreground hover:text-sky-600">
+        <AccordionTrigger className="text-lg font-medium text-foreground hover:text-sky-600 cursor-pointer">
           ¿Qué tipos de servicios de lavado ofrecen?
         </AccordionTrigger>
         <AccordionContent className="text-muted-foreground">
@@ -20,7 +20,7 @@ const FaqItems = () => {
       {/* ¿Cuánto tiempo toma un servicio de autolavado? */}
 
       <AccordionItem value="item-2">
-        <AccordionTrigger className="text-lg font-medium text-foreground hover:text-sky-600">
+        <AccordionTrigger className="text-lg font-medium text-foreground hover:text-sky-600 cursor-pointer">
           ¿Cuánto tiempo toma un servicio de autolavado?
         </AccordionTrigger>
         <AccordionContent className="text-muted-foreground">
@@ -32,7 +32,7 @@ const FaqItems = () => {
       {/* ¿Qué productos utilizan para el lavado? */}
 
       <AccordionItem value="item-3">
-        <AccordionTrigger className="text-lg font-medium text-foreground hover:text-sky-600">
+        <AccordionTrigger className="text-lg font-medium text-foreground hover:text-sky-600 cursor-pointer">
           ¿Qué productos utilizan para el lavado?
         </AccordionTrigger>
         <AccordionContent className="text-muted-foreground">
@@ -44,7 +44,7 @@ const FaqItems = () => {
       {/* ¿Necesito hacer una reserva previa? */}
 
       <AccordionItem value="item-4">
-        <AccordionTrigger className="text-lg font-medium text-foreground hover:text-sky-600">
+        <AccordionTrigger className="text-lg font-medium text-foreground hover:text-sky-600 cursor-pointer">
           ¿Necesito hacer una reserva previa?
         </AccordionTrigger>
         <AccordionContent className="text-muted-foreground">
