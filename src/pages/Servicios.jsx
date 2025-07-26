@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '@/components/Navbar'
 import CardService from '@/components/CardService'
+import Footer from '../components/Footer'
 import img4 from '/images/imagen4.jpg'
 import img5 from '/images/imagen5.jpg'
 import img6 from '/images/imagen6.jpg'
@@ -36,6 +37,7 @@ const Servicios = () => {
           <article></article>
         </section>
       </main>
+      <Footer />
     </div>
   )
 }

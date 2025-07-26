@@ -1,31 +1,41 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
-import { MenuIcon } from 'lucide-react'
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import Imagen2 from "/images/Card.png";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { MenuIcon } from "lucide-react";
 
 const Navbar = () => {
-
   const menuItems = [
-    { name: 'Inicio', path: '/' },
-    { name: 'Nosotros', path: '/nosotros' },
-    { name: 'Servicios', path: '/servicios' },
-    { name: 'FAQs', path: '/faqs' },
-    { name: 'Tus Reservas', path: '/reservas' },
-  ]
+    { name: "Inicio", path: "/" },
+    { name: "Nosotros", path: "/nosotros" },
+    { name: "Servicios", path: "/servicios" },
+    { name: "FAQs", path: "/faqs" },
+    { name: "Tus Reservas", path: "/reservas" },
+  ];
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/90 backdrop-blur-sm">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
+          <img
+            className="aspect-square object-cover rounded-full w-14 h-auto transition-transform duration-300 hover:scale-105"
+            src={Imagen2}
+            alt="Logo"
+          />
           <span className="text-2xl font-bold text-gray-900">CarWash</span>
         </Link>
-
         {/* Menu Desktop */}
         <nav className="hidden md:flex">
           <ul className="flex space-x-4">
-            {menuItems.map(item => (
+            {menuItems.map((item) => (
               <li key={item.name}>
                 <Link
                   to={item.path}
@@ -50,14 +60,14 @@ const Navbar = () => {
             <SheetHeader>
               <SheetTitle>
                 <VisuallyHidden>Menu</VisuallyHidden>
-                </SheetTitle>
+              </SheetTitle>
               <SheetDescription>
                 <VisuallyHidden>Opciones de Menu</VisuallyHidden>
               </SheetDescription>
             </SheetHeader>
             <nav>
               <ul className="flex flex-col gap-4 py-6">
-                {menuItems.map(item => (
+                {menuItems.map((item) => (
                   <li key={item.name}>
                     <Link to={item.path} className="text-lg font-medium">
                       {item.name}
@@ -70,7 +80,7 @@ const Navbar = () => {
         </Sheet>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
