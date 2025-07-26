@@ -1,5 +1,5 @@
 import Imagen from '/images/SobreNosotros.png'
-import Imagen2 from '/images/Card.png'
+import Imagen2 from '/images/Servicios.png'
 import { Link } from "react-router-dom";
 function Card() {
     return (
@@ -20,7 +20,7 @@ function Card() {
 
                     <div className="text-center border-2 border-neutral-300 rounded-[10px] shadow-[5px_5px_5px_hsl(0,0%,0%)] p-5 m-auto w-full md:w-[95%]">
                         <img className='w-[60%] aspect-square object-cover rounded-full block mx-auto my-4' src={Imagen} alt="" />
-                        <h2 className='font-sans m-0 text-[hsl(0,0%,20%)] font-black text-[20px] underline'>¿Porque Elegirnos?</h2>
+                        <h2 className='font-sans m-0 text-[hsl(0,0%,20%)] font-black text-[20px] underline'>Sobre Nosotros</h2>
                         <p className='card-texto'>Cada vehículo es tratado como si fuera nuestro. Nos enfocamos en dejarlo impecable por dentro y por fuera.
                             Usamos productos biodegradables y de primera línea que protegen la pintura y el interior de tu auto, además ¡En menos de 30 minutos tu auto estará reluciente! Perfecto para nuestros clientes
                             que valoran su tiempo.
