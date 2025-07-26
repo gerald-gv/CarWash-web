@@ -18,7 +18,7 @@ const FAQs = () => {
         </div>
       </div>
 
-      <div className='mx-auto max-w-4xl'>
+      <div className='mx-auto max-w-4xl px-4'>
         <Accordion type="single" collapsible>
           <FaqItems />
         </Accordion>
