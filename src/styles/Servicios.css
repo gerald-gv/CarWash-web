@@ -1,8 +1,9 @@
 .main-section{
     display: flex;
     flex-direction: column;
-    margin: clamp(0px, 10px, 36px);
+    padding: 30px 10px;
     justify-content: center;
+    background: radial-gradient(circle,rgba(255, 255, 255, 1) 0%, rgba(148, 187, 233, 1) 100%);
 }
 .main-services{
     display: flex;
@@ -12,7 +13,7 @@
 }
 .card{
     display: grid;
-    min-width: 2px;
+    min-width: 300px;
     box-shadow: 0 1px 1px gray;
     padding: 8px;
     border-radius: 8px;
@@ -29,6 +30,7 @@
 .card div ul{
     list-style: circle;
     margin: 10px 0 10px 32px;
+    font-weight: 600;
 }
 .card p{
     font-size: 24px;
@@ -50,14 +52,14 @@
 }
 /*--------------------------------*/
 .main-services--card1{
-    background-color: #EAA67B;
+    background: linear-gradient(90deg,rgba(164, 63, 60, 1) 0%, rgba(231, 164, 119, 1) 82%);
 }
 .main-services--card2{
-    background-color: #C3C4CA;
+    background: linear-gradient(90deg,rgba(126, 126, 162, 1) 0%, rgba(189, 189, 200, 1) 100%);
 
 }
 .main-services--card3{
-    background-color: #f4e26c;
+    background: linear-gradient(90deg,rgba(169, 150, 22, 1) 0%, rgba(245, 226, 108, 1) 100%);
 }
 .button1{
     background-color: #E6915D;

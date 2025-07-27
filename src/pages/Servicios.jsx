@@ -22,7 +22,7 @@ const Servicios = () => {
   return (
     <div>
       <main className='main-section'>
-        <section className='main-services'>
+        <section className='flex flex-wrap justify-around gap-y-[33px]'>
           {cardsData.map((card, index) => (
             <CardService key={index} 
                         titulo={card.title}
@@ -31,9 +31,6 @@ const Servicios = () => {
                         img={card.img}
                         items={card.items}/>
           ))}
-        </section>
-        <section className='other-services'>
-          <article></article>
         </section>
       </main>
     </div>
