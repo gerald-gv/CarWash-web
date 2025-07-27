@@ -17,12 +17,12 @@ const Servicios = () => {
             "Aplicacion de cera a color Sonax"]},
     { id: 3, title: "Premium", precio: 40, img:img6,
       items:["*Servicio Ejecutivo*", "Lavado de motor con desengrasante",
-            "Secado a presión de aire", "Aromatizado"]}
+            "Secado a presión de aire", "Aplicacion de pulidores y brillantadores", "Aromatizado"]}
   ];
   return (
     <div>
       <main className='main-section'>
-        <section className='main-services'>
+        <section className='flex flex-wrap justify-around gap-y-[33px]'>
           {cardsData.map((card, index) => (
             <CardService key={index} 
                         titulo={card.title}
@@ -31,9 +31,6 @@ const Servicios = () => {
                         img={card.img}
                         items={card.items}/>
           ))}
-        </section>
-        <section className='other-services'>
-          <article></article>
         </section>
       </main>
     </div>
