@@ -13,25 +13,23 @@ export const Footer = () => {
   ];
   return (
     <div className="w-full px-4 bg-slate-800">
-      <footer className="py-10">
-        <div className="flex flex-wrap items-start w-full">
+      <footer>
+        <div className="flex flex-wrap items-start w-full ">
           {/* Sección 1 */}
-          <div className="w-full sm:w-1/2 md:w-1/4 px-4 mb-6 text-center">
+          <div className=" w-full sm:w-1/2 md:w-1/4 px-2 text-center pt-2">
             <img
-              className="w-[50%] aspect-square object-cover rounded-full block mx-auto my-4 border-4 border-white transition-transform duration-300 ease-in-out hover:scale-105 hover:border-blue-400"
+              className="w-[40%] aspect-square object-cover rounded-full block mx-auto my-4 border-4 border-white transition-transform duration-300 ease-in-out hover:scale-105 hover:border-blue-400"
               src={Imagen2}
               alt=""
             />
-            <h5 className="text-lg font-semibold mb-4 text-white">
-              Sobre Nosotros
-            </h5>
+            <h5 className="text-lg font-semibold text-white">Sobre Nosotros</h5>
             <p className="text-gray-100">
               Pagina para un CarWash creada para un proyecto de Cibertec usando
               React, Tailwind y Vite, GAAAAAAAAAAAAAAAAAAAA.
             </p>
           </div>
           {/* Sección 2 */}
-          <div className="w-full sm:w-1/2 md:w-1/4 px-4 mb-6">
+          <div className="w-full sm:w-1/2 md:w-1/4 px-4 mb-6 pt-6">
             <h5 className="text-lg font-semibold mb-4 text-white">Sección</h5>
             <ul className="flex flex-col space-y-2">
               {links.map(({ nombre, href }) => (
@@ -47,7 +45,7 @@ export const Footer = () => {
             </ul>
           </div>
           {/* Suscribirse por correo */}
-          <div className="w-full md:w-1/3 md:ml-auto px-4 mb-6">
+          <div className="w-full md:w-1/3 md:ml-auto px-4 mb-6 pt-6">
             <form>
               <h5 className="text-white text-lg font-semibold mb-2">
                 Subscribete para saber nuestras Ofertas.
@@ -76,7 +74,7 @@ export const Footer = () => {
           </div>
         </div>
         {/* Copyright y Redes sociales */}
-        <div className="flex flex-col sm:flex-row justify-between items-center py-6 mt-8 border-t border-gray-300">
+        <div className="flex flex-col sm:flex-row justify-between items-center py-2 mt-8 border-t border-gray-300">
           <p className="text-sm text-gray-500">
             © 2025 CarWash. Todos los derechos reservados.
           </p>
