@@ -17,9 +17,9 @@ const CardService = (props) => {
   }
   
   return (
-          <div className="flip-card">
-            <article className={'flip-card-inner card main-services--card'+props.id}>
-                <div className="flip-card-front">
+          <div className="flip-card" >
+            <article className={'flip-card-inner card main-services--card'+props.id} data-aos={props.aos} data-aos-delay={props.delay}>
+                <div className={"flip-card-front"} >
                   <h2>{props.titulo}</h2>
                   <img src={props.img} alt="img" />
                   <div className="face front">

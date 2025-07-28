@@ -7,15 +7,15 @@ import img6 from '/images/imagen6.jpg'
 import '@/styles/Servicios.css'
 const Servicios = () => {
   const cardsData = [
-    { id: 1, title: "Basico", precio: 20, img:img4,
+    { id: 1, title: "Basico", precio: 20, img:img4, aos:"zoom-in", delay: 150,
       items:["Lavado exterior con shampoo", "Secado con Ante (Sonax)",
             "Silicona a guardafango y plásticos",
             "Limpieza de pisos", "Limpieza de lunas"]},
-    { id: 2, title: "Ejecutivo", precio: 30, img:img5,
+    { id: 2, title: "Ejecutivo", precio: 30, img:img5,  aos:"zoom-in", delay:150,
       items:["*Servicio Basico*", "Aplicación de silicona a tablero y viniles",
             "Aplicacion de silicona de neumaticos", "Aspirado interior y de maleta",
             "Aplicacion de cera a color Sonax"]},
-    { id: 3, title: "Premium", precio: 40, img:img6,
+    { id: 3, title: "Premium", precio: 40, img:img6,  aos: "zoom-in", delay:300,
       items:["*Servicio Ejecutivo*", "Lavado de motor con desengrasante",
             "Secado a presión de aire", "Aplicacion de pulidores y brillantadores", "Aromatizado"]}
   ];
@@ -29,7 +29,9 @@ const Servicios = () => {
                         precio={card.precio}
                         id={card.id}
                         img={card.img}
-                        items={card.items}/>
+                        items={card.items}
+                        aos={card.aos}
+                        delay={card.delay}/>
           ))}
         </section>
       </main>

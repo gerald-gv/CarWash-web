@@ -9,7 +9,7 @@ import React from 'react'
 const Nosotros = () => {
   return (
     <>
-      <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-800 text-white">
+      <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-slate-950 via-gray-900 to-slate-800 text-white" data-aos="fade-down">
         <div className="px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-6 text-center">
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">

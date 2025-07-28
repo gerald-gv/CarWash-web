@@ -1,22 +1,13 @@
 import Imagen from "/images/SobreNosotros.png";
 import Imagen2 from "/images/Servicios.png";
 import { Link } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 
 function Card() {
-  useEffect(() => {
-    AOS.init({
-      duration: 800, // duración de la animación en ms
-      once: true, // solo una vez
-    });
-  }, []);
   return (
     <section className="w-full py-12 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center text-center">
         <div className="flex flex-col items-center justify-center text-center mb-12">
-          <div data-aos="fade-up" className="space-y-4">
+          <div data-aos="fade-down" className="space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter md:text-5xl text-gray-800 transition-all duration-300 transform hover:-translate-y-1 hover:text-indigo-600 cursor-pointer">
               ¿Por Qué Elegirnos?
             </h2>
@@ -29,11 +20,11 @@ function Card() {
         {/*Contenedor Cards */}
 
         <div
-          data-aos="fade-up"
+          
           className="grid gap-8 md:grid-cols-2 w-full max-w-6xl mx-auto"
         >
           {/* Card 1 */}
-          <div className="shadow-2xl shadow-black/60 hover:shadow-2xl hover:shadow-blue-500/80 hover:shadow-[0_25px_50px_-12px] relative group bg-neutral-200 text-white rounded-xl shadow-2xl overflow-hidden w-full md:w-[95%] m-auto p-6 transition-all duration-300 ease-in-out hover:[transform:perspective(1000px)_rotateY(6deg)_rotateX(1deg)]">
+          <div className="shadow-2xl shadow-black/60 hover:shadow-2xl hover:shadow-blue-500/80 hover:shadow-[0_25px_50px_-12px] relative group bg-neutral-200 text-white rounded-xl shadow-2xl overflow-hidden w-full md:w-[95%] m-auto p-6 transition-all duration-300 ease-in-out hover:[transform:perspective(1000px)_rotateY(6deg)_rotateX(1deg)]" data-aos="fade-right">
             {/* Imagen redonda animada */}
             <img
               className="w-[60%] aspect-square object-cover rounded-full mx-auto my-4 border-4 border-white shadow-lg group-hover:scale-105 group-hover:-translate-y-1 transition-all duration-200 ease-linear hover:[transform:perspective(1000px)_rotateY(6deg)_rotateX(1deg)]"
@@ -56,7 +47,7 @@ function Card() {
           </div>
 
           {/* Card 2 */}
-          <div className="shadow-2xl shadow-black/60 hover:shadow-2xl hover:shadow-blue-500/80 hover:shadow-[0_25px_50px_-12px] relative group bg-neutral-200 text-white rounded-xl shadow-2xl overflow-hidden w-full md:w-[95%] m-auto p-6 transition-all duration-300 ease-in-out hover:[transform:perspective(1000px)_rotateY(6deg)_rotateX(1deg)]">
+          <div className="shadow-2xl shadow-black/60 hover:shadow-2xl hover:shadow-blue-500/80 hover:shadow-[0_25px_50px_-12px] relative group bg-neutral-200 text-white rounded-xl shadow-2xl overflow-hidden w-full md:w-[95%] m-auto p-6 transition-all duration-300 ease-in-out hover:[transform:perspective(1000px)_rotateY(6deg)_rotateX(1deg)]" data-aos="fade-left" >
             {/* Imagen redonda animada */}
             <img
               className="w-[60%] aspect-square object-cover rounded-full mx-auto my-4 border-4 border-white shadow-lg group-hover:scale-105 group-hover:-translate-y-1 transition-all duration-200 ease-linear hover:[transform:perspective(1000px)_rotateY(6deg)_rotateX(1deg)]"

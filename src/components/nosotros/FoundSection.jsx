@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const FoundSection = () => {
   return (
-    <section className='py-16 md:py-20 bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 text-white'>
+    <section className='py-16 md:py-20 bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 text-white' data-aos="fade-down">
 
         {/*Contenedor FoundSection */}
 
@@ -26,10 +26,10 @@ const FoundSection = () => {
                 {/*Contenedor Botones */}
                 
                 <div className='flex flex-col md:flex-row gap-6 mt-8'>
-                    <Link to="/servicios" className='px-4 md:px-8 py-4 inline-flex rounded-full bg-sky-600 text-lg font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:bg-sky-600/90'>
+                    <Link to="/servicios" className='px-4 md:px-8 py-4 inline-flex rounded-full bg-sky-600 text-lg font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:bg-sky-600/90' data-aos="fade-down">
                         Ver Nuestros Servicios
                     </Link>
-                    <Link to="/faqs" className='rounded-full border-2 border-white px-4 md:px-8 py-4 text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 hover:scale-105'>
+                    <Link to="/faqs" className='rounded-full border-2 border-white px-4 md:px-8 py-4 text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 hover:scale-105' data-aos="fade-down">
                         Ver FAQs
                     </Link>
                 </div>

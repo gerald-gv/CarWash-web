@@ -18,7 +18,7 @@ const StatsSection = () => {
             {/*Mini Cards de Stats*/}
             <div className='grid grid-cols-2 md:grid-cols-4 gap-2'>
                 {cardStats.map((stats, i) => (
-                    <div key={i} className='flex flex-col items-center text-center group '>
+                    <div key={i} className='flex flex-col items-center text-center group' data-aos="zoom-in" data-aos-delay={i * 150} >
 
                         {/*Icono Stats*/}
 

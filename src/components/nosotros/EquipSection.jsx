@@ -34,13 +34,13 @@ const EquipSection = () => {
                 {/*Titulo EquipSection */}
 
                 <div className='flex flex-col items-center space-y-6 text-center mb-16'>
-                    <Badge className='bg-gradient-to-r from-slate-600 to-gray-700 text-white px-4 py-2'>
+                    <Badge className='bg-gradient-to-r from-slate-600 to-gray-700 text-white px-4 py-2' data-aos="zoom-in">
                         Tecnologias y Equipos
                     </Badge>
-                    <h2 className='text-4xl md:text-5xl font-bold tracking-tight text-gray-900'>
+                    <h2 className='text-4xl md:text-5xl font-bold tracking-tight text-gray-900' data-aos="fade-up">
                         Equipamiento Especializado para cada Servicio
                     </h2>
-                    <p className='max-w-4xl text-gray-700 text-xl leading-relaxed'>
+                    <p className='max-w-4xl text-gray-700 text-xl leading-relaxed' data-aos="fade-up" data-aos-delay="150">
                         Contamos con una gran cantidad de herramientas profesionales para cada nivel de Servicio. desde el
                         basico hasta el premium.
                     </p>
@@ -51,7 +51,7 @@ const EquipSection = () => {
 
                 <div className='grid md:grid-cols-3 gap-6'>
                     {equipment.map((equipo, i) => (
-                        <Card key={i} className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 group hover:scale-105 border-0">
+                        <Card key={i} className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 group hover:scale-105 border-0" data-aos="zoom-in" data-aos-delay={i * 150}>
                             <CardHeader className="text-center ">
                                 <div className={`mx-auto mb-6 bg-gradient-to-r ${equipo.color} w-24 h-24 rounded-xl flex items-center justify-center
                                 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>

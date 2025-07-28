@@ -13,23 +13,23 @@ const AboutSection = () => {
 
                     <div className='space-y-8'>
                         <div className='space-y-4'>
-                            <Badge className='bg-gradient-to-r from-sky-500 to-blue-600 text-white px-4 py-2 text-sm font-semibold'>
+                            <Badge className='bg-gradient-to-r from-sky-500 to-blue-600 text-white px-4 py-2 text-sm font-semibold' data-aos="zoom-in">
                                 ¿Quienes Somos?
                             </Badge>
-                            <h2 className='text-4xl md:text-5xl font-bold tracking-tight text-gray-900'>
+                            <h2 className='text-4xl md:text-5xl font-bold tracking-tight text-gray-900' data-aos="fade-up" data-aos-delay="100">
                                 Nuestra Historia..
                             </h2>
                         </div>
                         <div className='space-y-6 text-gray-700 text-lg leading-relaxed'>
-                            <p className='border-l-4 border-sky-500 pl-6 bg-white/80 p-4 rounded-r-lg shadow-sm'>
+                            <p className='border-l-4 border-sky-500 pl-6 bg-white/80 p-4 rounded-r-lg shadow-sm' data-aos="fade-right">
                                 CarWash Pro comenzo con un emprendimiento familiar, con vision de ofrecer servicios autolavados eficientes
                                 y que hiciera la diferencia a nuestra comunidad.
                             </p>
-                            <p className='border-l-4 border-emerald-400 pl-6 bg-white/80 p-4 rounded-r-lg shadow-sm'>
+                            <p className='border-l-4 border-emerald-400 pl-6 bg-white/80 p-4 rounded-r-lg shadow-sm' data-aos="fade-right">
                                 Nos especializamos en tres niveles de servicios: Basico, Ejecutivo y Premium.
                                 Utilizando productos de calidad como Sonax y tecnicas que garantizan un autolavado eficiente.
                             </p>
-                            <p className='border-l-4 border-sky-500 pl-6 bg-white/80 p-4 rounded-r-lg shadow-sm'>
+                            <p className='border-l-4 border-sky-500 pl-6 bg-white/80 p-4 rounded-r-lg shadow-sm' data-aos="fade-right">
                                 Actualmente somos reconocidos por nuestra excelente atencion al cliente a un buen nivel de detalle,
                                 desde lavados exterieros y manteniendo impecable el vehiculo.
                             </p>

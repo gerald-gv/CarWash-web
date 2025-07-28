@@ -10,10 +10,10 @@ const MissionSection = () => {
 
                 {/*Contenedor - Titulo */}
                 <div className='text-center mb-16'>
-                    <Badge className="bg-white/20 border-white/30 px-4 py-2 mb-6">
+                    <Badge className="bg-white/20 border-white/30 px-4 py-2 mb-6" data-aos="zoom-in">
                         Misión y Visión
                     </Badge>
-                    <h2 className='text-4xl md:text-5xl font-bold tracking-tight'>
+                    <h2 className='text-4xl md:text-5xl font-bold tracking-tight' data-aos="fade-up">
                         Nuestro{" "}
                         <span className='bg-gradient-to-r from-white/80 to-gray-300 bg-clip-text text-transparent'>Compromiso</span>
                     </h2>
@@ -24,7 +24,7 @@ const MissionSection = () => {
 
                     {/*Card Mision */}
 
-                    <Card className="bg-white/10 border-white/20 text-white hover:bg-white/15 transition-all duration-300 group">
+                    <Card className="bg-white/10 border-white/20 text-white hover:bg-white/15 transition-all duration-300 group" data-aos="zoom-in" data-aos-delay="0">
                         <CardHeader>
                             <div className='flex items-center gap-6 mb-6'>
                                 <div className='p-3 bg-gradient-to-r from-white/20 to-white/30 rounded-xl group-hover:scale-110 transition-transform duration-300'>
@@ -44,7 +44,7 @@ const MissionSection = () => {
 
                     {/*Card Vision*/}
 
-                    <Card className="bg-white/10 border-white/20 text-white hover:bg-white/15 transition-all duration-300 group">
+                    <Card className="bg-white/10 border-white/20 text-white hover:bg-white/15 transition-all duration-300 group" data-aos="zoom-in" data-aos-delay="150">
                         <CardHeader>
                             <div className='flex items-center gap-6 mb-6'>
                                 <div className='p-3 bg-gradient-to-r from-white/20 to-white/30 rounded-xl group-hover:scale-110 transition-transform duration-300'>

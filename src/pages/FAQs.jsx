@@ -8,10 +8,10 @@ const FAQs = () => {
       <div className='container px-4 md:px-6 mx-auto'>
         <div className='flex flex-col items-center justify-center text-center space-y-4 mb-12'>
           <div className='space-y-2'>
-            <h1 className='text-3xl font-bold tracking-tighter md:text-5xl text-foreground mb-8'>
+            <h1 className='text-3xl font-bold tracking-tighter md:text-5xl text-foreground mb-8' data-aos="fade-up">
               Preguntas Frecuentes de nuestra Comunidad
             </h1>
-            <p className='max-w-[900px] text-muted-foreground md:text-xl/relaxed'>
+            <p className='max-w-[900px] text-muted-foreground md:text-xl/relaxed' data-aos="fade-up" data-aos-delay="150">
               Encontraras las preguntas más comunes acerca de nuestro servicio de autolavado. Si tienes alguna otra consulta, contactanos mediante Whatsapp!
             </p>
           </div>
@@ -20,7 +20,7 @@ const FAQs = () => {
 
       <div className='mx-auto max-w-4xl px-4'>
         <Accordion type="single" collapsible>
-          <FaqItems />
+          <FaqItems  />
         </Accordion>
       </div>
     </section>
