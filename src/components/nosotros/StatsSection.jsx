@@ -13,10 +13,10 @@ const StatsSection = () => {
 
   return (
     <section className='py-16 md:py-20 bg-gradient-to-r from-gray-200 via-slate-200 to-gray-200'>
-        <div className='px-4 md:px-6'>
+        <div className='px-4 md:px-6 lg:px-20 xl:px-32 2xl:px-48'>
 
             {/*Mini Cards de Stats*/}
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-2'>
+            <div className='grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6'>
                 {cardStats.map((stats, i) => (
                     <div key={i} className='flex flex-col items-center text-center group' data-aos="zoom-in" data-aos-delay={i * 150} >
 

@@ -4,19 +4,19 @@ import { Badge } from '@/components/ui/badge'
 const AboutSection = () => {
     return (
         <section className='py-16 md:py-24 lg:py-32 bg-gradient-to-br from-white via-slate-100 to-gray-100'>
-            <div className='container mx-auto px-4 md:px-6'>
+            <div className='container mx-auto px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16'>
 
                 {/*Contenedor Columas About - Imagen */}
-                <div className='grid gap-12 lg:grid-cols-2 lg:gap-10 items-center'>
+                <div className='grid gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24 items-center'>
 
                     {/*Columna Quienes Somos*/}
 
-                    <div className='space-y-8'>
+                    <div className='space-y-10'>
                         <div className='space-y-4'>
                             <Badge className='bg-gradient-to-r from-sky-500 to-blue-600 text-white px-4 py-2 text-sm font-semibold' data-aos="zoom-in">
                                 ¿Quienes Somos?
                             </Badge>
-                            <h2 className='text-4xl md:text-5xl font-bold tracking-tight text-gray-900' data-aos="fade-up" data-aos-delay="100">
+                            <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900' data-aos="fade-up" data-aos-delay="100">
                                 Nuestra Historia..
                             </h2>
                         </div>

@@ -19,60 +19,64 @@ function Card() {
 
         {/*Contenedor Cards */}
 
-        <div
+        <div className="grid gap-8 md:grid-cols-2 w-full max-w-6xl mx-auto">
           
-          className="grid gap-8 md:grid-cols-2 w-full max-w-6xl mx-auto"
-        >
           {/* Card 1 */}
-          <div className="shadow-2xl shadow-black/60 hover:shadow-2xl hover:shadow-blue-500/80 hover:shadow-[0_25px_50px_-12px] relative group bg-neutral-200 text-white rounded-xl shadow-2xl overflow-hidden w-full md:w-[95%] m-auto p-6 transition-all duration-300 ease-in-out hover:[transform:perspective(1000px)_rotateY(6deg)_rotateX(1deg)]" data-aos="fade-right">
-            {/* Imagen redonda animada */}
-            <img
-              className="w-[60%] aspect-square object-cover rounded-full mx-auto my-4 border-4 border-white shadow-lg group-hover:scale-105 group-hover:-translate-y-1 transition-all duration-200 ease-linear hover:[transform:perspective(1000px)_rotateY(6deg)_rotateX(1deg)]"
-              src={Imagen}
-              alt="Sobre Nosotros"
-            />
-            {/* Título animado */}
-            <h2 className="font-sans m-0 text-indigo-600 font-black text-[20px] underline pb-2 group-hover:text-blue-900 group-hover:-translate-y-1 transition-all duration-150 ease-linear">
-              Sobre Nosotros
-            </h2>
+          <div data-aos="fade-right">
+            <div className="shadow-2xl shadow-black/60 hover:shadow-2xl hover:shadow-blue-500/80 hover:shadow-[0_25px_50px_-12px] relative group bg-neutral-200 text-white rounded-xl shadow-2xl overflow-hidden w-full md:w-[95%] m-auto p-6 transition-all duration-300 ease-in-out hover:[transform:perspective(1000px)_rotateY(6deg)_rotateX(1deg)]" >
+              {/* Imagen redonda animada */}
+              <img
+                className="w-[60%] aspect-square object-cover rounded-full mx-auto my-4 border-4 border-white shadow-lg group-hover:scale-105 group-hover:-translate-y-1 transition-all duration-200 ease-linear hover:[transform:perspective(1000px)_rotateY(6deg)_rotateX(1deg)]"
+                src={Imagen}
+                alt="Sobre Nosotros"
+              />
+              {/* Título animado */}
+              <h2 className="font-sans m-0 text-indigo-600 font-black text-[20px] underline pb-2 group-hover:text-blue-900 group-hover:-translate-y-1 transition-all duration-150 ease-linear">
+                Sobre Nosotros
+              </h2>
 
-            {/* Texto descriptivo */}
-            <p className="text-black text-sm md:text-base leading-relaxed">
-              Cada vehículo es tratado como si fuera nuestro. Nos enfocamos en
-              dejarlo impecable por dentro y por fuera. Usamos productos
-              biodegradables y de primera línea que protegen la pintura y el
-              interior de tu auto, además ¡En menos de 30 minutos tu auto estará
-              reluciente! Perfecto para nuestros clientes que valoran su tiempo.
-            </p>
+              {/* Texto descriptivo */}
+              <p className="text-black text-sm md:text-base leading-relaxed">
+                Cada vehículo es tratado como si fuera nuestro. Nos enfocamos en
+                dejarlo impecable por dentro y por fuera. Usamos productos
+                biodegradables y de primera línea que protegen la pintura y el
+                interior de tu auto, además ¡En menos de 30 minutos tu auto estará
+                reluciente! Perfecto para nuestros clientes que valoran su tiempo.
+              </p>
+            </div>
           </div>
+
 
           {/* Card 2 */}
-          <div className="shadow-2xl shadow-black/60 hover:shadow-2xl hover:shadow-blue-500/80 hover:shadow-[0_25px_50px_-12px] relative group bg-neutral-200 text-white rounded-xl shadow-2xl overflow-hidden w-full md:w-[95%] m-auto p-6 transition-all duration-300 ease-in-out hover:[transform:perspective(1000px)_rotateY(6deg)_rotateX(1deg)]" data-aos="fade-left" >
-            {/* Imagen redonda animada */}
-            <img
-              className="w-[60%] aspect-square object-cover rounded-full mx-auto my-4 border-4 border-white shadow-lg group-hover:scale-105 group-hover:-translate-y-1 transition-all duration-200 ease-linear hover:[transform:perspective(1000px)_rotateY(6deg)_rotateX(1deg)]"
-              src={Imagen2}
-              alt="Nuestros Servicios"
-            />
-            {/* Título animado */}
-            <h2 className="font-sans m-0 text-indigo-600 font-black text-[20px] underline pb-2 group-hover:text-blue-900 group-hover:-translate-y-1 transition-all duration-150 ease-linear">
-              Conoce más de nuestros Servicios
-            </h2>
+          <div data-aos="fade-left">
+            <div className="shadow-2xl shadow-black/60 hover:shadow-2xl hover:shadow-blue-500/80 hover:shadow-[0_25px_50px_-12px] relative group bg-neutral-200 text-white rounded-xl shadow-2xl overflow-hidden w-full md:w-[95%] m-auto p-6 transition-all duration-300 ease-in-out hover:[transform:perspective(1000px)_rotateY(6deg)_rotateX(1deg)]"  >
+              {/* Imagen redonda animada */}
+              <img
+                className="w-[60%] aspect-square object-cover rounded-full mx-auto my-4 border-4 border-white shadow-lg group-hover:scale-105 group-hover:-translate-y-1 transition-all duration-200 ease-linear hover:[transform:perspective(1000px)_rotateY(6deg)_rotateX(1deg)]"
+                src={Imagen2}
+                alt="Nuestros Servicios"
+              />
+              {/* Título animado */}
+              <h2 className="font-sans m-0 text-indigo-600 font-black text-[20px] underline pb-2 group-hover:text-blue-900 group-hover:-translate-y-1 transition-all duration-150 ease-linear">
+                Conoce más de nuestros Servicios
+              </h2>
 
-            {/* Texto descriptivo */}
-            <p className="text-black text-sm md:text-base leading-relaxed">
-              Puedes revisar nuestras diversas opciones de servicio en el
-              siguiente enlace. ¡Seguro que no te arrepentirás!
-            </p>
+              {/* Texto descriptivo */}
+              <p className="text-black text-sm md:text-base leading-relaxed">
+                Puedes revisar nuestras diversas opciones de servicio en el
+                siguiente enlace. ¡Seguro que no te arrepentirás!
+              </p>
 
-            {/* Botón con animación */}
-            <Link
-              to="/servicios"
-              className="mt-6 inline-block bg-sky-200 text-black border border-gray-300 hover:bg-orange-200 hover:border-orange-300 hover:shadow-lg rounded-md px-10 py-3 text-base font-semibold cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-2"
-            >
-              Ver Nuestros Servicios
-            </Link>
+              {/* Botón con animación */}
+              <Link
+                to="/servicios"
+                className="mt-6 inline-block bg-sky-200 text-black border border-gray-300 hover:bg-orange-200 hover:border-orange-300 hover:shadow-lg rounded-md px-10 py-3 text-base font-semibold cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-2"
+              >
+                Ver Nuestros Servicios
+              </Link>
+            </div>
           </div>
+
         </div>
       </div>
     </section>

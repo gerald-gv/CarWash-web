@@ -22,7 +22,7 @@ const Navbar = () => {
   ];
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/90 backdrop-blur-sm">
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <img
@@ -34,12 +34,12 @@ const Navbar = () => {
         </Link>
         {/* Menu Desktop */}
         <nav className="hidden md:flex">
-          <ul className="flex space-x-4">
+          <ul className="flex space-x-4 md:space-x-6 xl:space-x-8">
             {menuItems.map((item) => (
               <li key={item.name}>
                 <Link
                   to={item.path}
-                  className="relative group text-lg font-medium text-gray-500 hover:text-blue-900 transition-colors"
+                  className="relative group text-lg md:text-xl font-medium text-gray-500 hover:text-blue-900 transition-colors"
                 >
                   {item.name}
                   <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-900 transition-all duration-300 group-hover:w-full" />
@@ -51,7 +51,7 @@ const Navbar = () => {
         {/* Menú Móvil */}
         <Sheet>
           <SheetTrigger asChild>
-            <button className="md:hidden bg-transparent">
+            <button className="md:hidden bg-transparent" >
               <MenuIcon className="h-6 w-6" />
             </button>
           </SheetTrigger>
