@@ -24,7 +24,7 @@ const MissionSection = () => {
 
                     {/*Card Mision */}
                     <div data-aos="zoom-in" data-aos-delay="0">
-                        <Card className="bg-white/10 border-white/20 text-white hover:bg-white/15 transition-all duration-300 group" >
+                        <Card className="bg-white/10 border-white/20 text-white hover:bg-white/15 transition-all duration-300 group h-full" >
                             <CardHeader>
                                 <div className='flex items-center gap-6 mb-6'>
                                     <div className='p-3 bg-gradient-to-r from-white/20 to-white/30 rounded-xl group-hover:scale-110 transition-transform duration-300'>
@@ -46,7 +46,7 @@ const MissionSection = () => {
                     {/*Card Vision*/}
 
                     <div data-aos="zoom-in" data-aos-delay="150">
-                        <Card className="bg-white/10 border-white/20 text-white hover:bg-white/15 transition-all duration-300 group" >
+                        <Card className="bg-white/10 border-white/20 text-white hover:bg-white/15 transition-all duration-300 group h-full" >
                             <CardHeader>
                                 <div className='flex items-center gap-6 mb-6'>
                                     <div className='p-3 bg-gradient-to-r from-white/20 to-white/30 rounded-xl group-hover:scale-110 transition-transform duration-300'>

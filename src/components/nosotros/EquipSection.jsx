@@ -52,7 +52,7 @@ const EquipSection = () => {
                 <div className='grid md:grid-cols-3 gap-6 lg:gap-8 xl:gap-12'>
                     {equipment.map((equipo, i) => (
                         <div data-aos="zoom-in" data-aos-delay={i * 150}>
-                            <Card key={i} className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 group hover:scale-105 border-0">
+                            <Card key={i} className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 group hover:scale-105 border-0 h-full">
                                 <CardHeader className="text-center ">
                                     <div className={`mx-auto mb-6 bg-gradient-to-r ${equipo.color} w-24 h-24 xl:w-28 xl:h-28 rounded-xl flex items-center justify-center
                                 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
