@@ -33,7 +33,7 @@ const Navbar = () => {
           <span className="text-2xl font-bold text-gray-900">CarWash</span>
         </Link>
         {/* Menu Desktop */}
-        <nav className="hidden md:flex">
+        <nav className="hidden lg:flex items-center">
           <ul className="flex space-x-4 md:space-x-6 xl:space-x-8">
             {menuItems.map((item) => (
               <li key={item.name}>
@@ -47,11 +47,17 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
+          <div className="ml-4">
+            <Link to="/login" className="text-white inline-flex rounded-full border-2 bg-sky-600 px-4 py-2 text-lg font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:bg-sky-700">
+              Iniciar Sesion
+            </Link>
+          </div>
         </nav>
+
         {/* Menú Móvil */}
         <Sheet>
           <SheetTrigger asChild>
-            <button className="md:hidden bg-transparent" >
+            <button className="lg:hidden bg-transparent" >
               <MenuIcon className="h-6 w-6" />
             </button>
           </SheetTrigger>
@@ -59,7 +65,7 @@ const Navbar = () => {
             <SheetHeader>
               <SheetTitle>
                 <VisuallyHidden>Menu</VisuallyHidden>
-                </SheetTitle>
+              </SheetTitle>
               <SheetDescription>
                 <VisuallyHidden>Opciones de Menu</VisuallyHidden>
               </SheetDescription>
@@ -74,6 +80,11 @@ const Navbar = () => {
                   </li>
                 ))}
               </ul>
+              <div className="mt-2">
+                <Link to="/login" className="text-white inline-flex rounded-full border-2 bg-sky-600 px-4 py-2 text-lg font-semibold shadow-xl">
+                  Iniciar Sesion
+                </Link>
+              </div>
             </nav>
           </SheetContent>
         </Sheet>
