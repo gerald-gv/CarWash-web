@@ -5,17 +5,21 @@
   align-items: center;
   height: 100vh;
   background: #f3f3f3;
+  padding: 10px;
 }
 
 .login-form {
   background: white;
-  padding: 30px;
+  padding: 40px;
   border-radius: 10px;
   box-shadow: 0 0 10px #ccc;
-  width: 300px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .login-form h2 {
+  font-weight: bold;
+  font-size: 1.5rem;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -28,7 +32,8 @@
 
 .login-form input {
   width: 100%;
-  padding: 8px;
+  padding: 12px;
+  font-size: 1rem;
   margin-top: 5px;
   margin-bottom: 15px;
   border-radius: 4px;
@@ -56,5 +61,22 @@
 
 .register-link a {
   color: #007bfc;
-  text-decoration: none;
+  text-decoration: none;
+}
+
+
+@media (width >= 768px) {
+  .login-form {
+    padding: 25px;
+    max-width: 500px;
+  }
+
+  .login-form h2 {
+    font-size: 2rem; 
+  }
+
+  .login-form input,
+  .login-form button {
+    font-size: 1.2rem;
+  }
 }

@@ -25,6 +25,8 @@ body {
 
 .registro-form h2 {
   margin-bottom: 25px;
+  font-size: 1.5rem;
+  font-weight: bold;
   text-align: center;
   color: #333;
 }
@@ -90,5 +92,20 @@ body {
   color: red;
   font-size: 13px;
   margin-bottom: 15px;
-  text-align: center;
+  text-align: center;
+}
+
+@media (width >= 768px) {
+  .registro-form{
+    max-width: 500px;
+  }
+
+  .registro-form h2{
+    font-size: 2rem;
+  }
+
+  .registro-form input,
+  .registro-form button {
+    font-size: 1.2rem;
+  }
 }
