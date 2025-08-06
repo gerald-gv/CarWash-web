@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import {
   Sheet,
@@ -13,6 +14,10 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { MenuIcon } from "lucide-react";
 
 const Navbar = () => {
+
+  const { user, isAuthenticated, logout } = useContext(AuthContext) // Se usa el context proveedor
+
+
   const menuItems = [
     { name: "Inicio", path: "/" },
     { name: "Nosotros", path: "/nosotros" },
@@ -30,7 +35,13 @@ const Navbar = () => {
             src={Imagen2}
             alt="Logo"
           />
-          <span className="text-2xl font-bold text-gray-900">CarWash</span>
+          {/*Verificar si esta Autenticado, si no solo mostrara CarWash */}
+          {isAuthenticated ? (
+            <span className="text-2xl font-bold text-gray-900">{user.username}</span>
+          ) : (
+            <span className="text-2xl font-bold text-gray-900">CarWash</span>
+          )}
+
         </Link>
         {/* Menu Desktop */}
         <nav className="hidden lg:flex items-center">
@@ -47,10 +58,22 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
+
           <div className="ml-4">
-            <Link to="/login" className="text-white inline-flex rounded-full border-2 bg-sky-600 px-4 py-2 text-lg font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:bg-sky-700">
-              Iniciar Sesion
-            </Link>
+            {/*Verifica si esta autenticado, si no solo mostrara Iniciar Sesion*/}
+            {isAuthenticated ? (
+              <button
+                onClick={logout}
+                className="text-white inline-flex rounded-full border-2 bg-red-600 px-4 py-2 text-lg font-semibold shadow-xl hover:scale-105 transition-all duration-300 hover:bg-red-700"
+              >
+                Cerrar Sesion
+              </button>
+            ) : (
+              <Link to="/login" className="text-white inline-flex rounded-full border-2 bg-sky-600 px-4 py-2 text-lg font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 hover:bg-sky-700">
+                Iniciar Sesion
+              </Link>
+            )}
+
           </div>
         </nav>
 
@@ -81,9 +104,19 @@ const Navbar = () => {
                 ))}
               </ul>
               <div className="mt-2">
-                <Link to="/login" className="text-white inline-flex rounded-full border-2 bg-sky-600 px-4 py-2 text-lg font-semibold shadow-xl">
-                  Iniciar Sesion
-                </Link>
+
+                {isAuthenticated ? (
+                  <button className="text-white inline-flex rounded-full border-2 bg-red-600 px-4 py-2 text-lg font-semibold shadow-xl"
+                    onClick={logout}
+                  >
+                    Cerrar Sesion
+                  </button>
+                ) : (
+                  <Link to="/login" className="text-white inline-flex rounded-full border-2 bg-sky-600 px-4 py-2 text-lg font-semibold shadow-xl">
+                    Iniciar Sesion
+                  </Link>
+                )}
+
               </div>
             </nav>
           </SheetContent>

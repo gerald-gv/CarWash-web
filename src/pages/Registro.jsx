@@ -1,31 +1,76 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import "../styles/Registro.css";
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 const Registro = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext)
 
-  const handleRegister = (e) => {
+  const API_URL = import.meta.env.VITE_API_URL
+
+  //Objeto form para usar un solo estado
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  })
+
+
+  // handleChange generico, establece nuevos cambios al formData
+  const handleChange = (e) => {
+    const { name, value } = e.target // desestructuracion para inputs
+    setFormData(prev => ({ 
+      ...prev,
+      [name]: value})) // Copia lo anterior y establece lo nuevo segun el name y value
+  }
+  
+
+  //handleRegister asincrono para realizar fetch
+  const handleRegister = async (e) => {
     e.preventDefault();
     setError('');
 
-    if(password !== confirmPassword){
+    const { username, email, password, confirmPassword } = formData;
+
+    //validacion de contraseña
+    if (password !== confirmPassword) {
       setError('Las contraseñas no coinciden');
       return;
     }
 
-    // Aquí podrías guardar datos en localStorage o simplemente mostrar en consola
-    console.log('Registrando usuario:', { username, email, password });
+    // Proceso de registro
+    try {
+      const res = await fetch(`${API_URL}api/auth/local/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password })
+      })
 
-    alert('Usuario registrado correctamente!');
+      const data = await res.json();
 
-    // Redireccionar a login, por ejemplo
-    navigate('/login');
+      //Validacion de respuesta al fetch
+      if (res.ok) {
+
+        login(data.user, data.jwt) // Utilizamos el login del context
+
+        alert('Usuario registrado correctamente!');
+        navigate('/');
+      } else {
+        setError( data?.error?.message || "Error al Registrar Usuario");
+      }
+      
+    } catch (err){
+      console.error(err);
+      setError("Error de Conexion");
+    }
+
+    // Verificar Token y Usuario Registado
+    //console.log("Usuario Registrado: ", formData)
+
+
   };
 
   return (
@@ -37,8 +82,9 @@ const Registro = () => {
         <input
           type="text"
           placeholder="Ingresa tu nombre de usuario"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
+          name='username'
+          value={formData.username}
+          onChange={handleChange}
           required
         />
 
@@ -46,8 +92,9 @@ const Registro = () => {
         <input
           type="email"
           placeholder="Ingresa tu correo"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
+          name='email'
+          value={formData.email}
+          onChange={handleChange}
           required
         />
 
@@ -55,8 +102,9 @@ const Registro = () => {
         <input
           type="password"
           placeholder="Ingresa tu contraseña"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
+          name='password'
+          value={formData.password}
+          onChange={handleChange}
           required
         />
 
@@ -64,8 +112,9 @@ const Registro = () => {
         <input
           type="password"
           placeholder="Confirma tu contraseña"
-          value={confirmPassword}
-          onChange={e => setConfirmPassword(e.target.value)}
+          name='confirmPassword'
+          value={formData.confirmPassword}
+          onChange={handleChange}
           required
         />
 
@@ -81,4 +130,4 @@ const Registro = () => {
   );
 };
 
-export default Registro;
+export default Registro;

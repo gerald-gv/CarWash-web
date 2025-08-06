@@ -64,6 +64,13 @@
   text-decoration: none;
 }
 
+.error-message {
+  color: red;
+  font-size: 13px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
 
 @media (width >= 768px) {
   .login-form {
