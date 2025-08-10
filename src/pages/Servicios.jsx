@@ -23,7 +23,7 @@ const Servicios = () => {
           id: card.id,
           titulo: card.titulo,
           precio: card.precio,
-          img: `${API_URL}${card.imagen.url}`,
+          img: card.imagen.url,
           items: card.detalles.map((det) => det.nombre),
         }));
         setCardsData(serviciosFormateados);
