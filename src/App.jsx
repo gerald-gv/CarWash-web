@@ -6,6 +6,8 @@ import Nosotros from './pages/Nosotros';
 import Servicios from './pages/Servicios';
 import FAQs from './pages/FAQs';
 import Layout from './components/Layout';
+import Login from './pages/Login';
+import Registro from './pages/Registro';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="/servicios" element={<Servicios />} />
         <Route path="/faqs" element={<FAQs />} />
       </Route>
+      <Route path='/login' element={<Login />} />
+      <Route path='/registro' element={<Registro />} />
     </Routes>
   )
 }

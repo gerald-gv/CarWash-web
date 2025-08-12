@@ -1,22 +1,13 @@
 import Imagen from "/images/SobreNosotros.png";
 import Imagen2 from "/images/Servicios.png";
 import { Link } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 
 function Card() {
-  useEffect(() => {
-    AOS.init({
-      duration: 800, // duración de la animación en ms
-      once: true, // solo una vez
-    });
-  }, []);
   return (
     <section className="w-full py-12 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center text-center">
         <div className="flex flex-col items-center justify-center text-center mb-12">
-          <div data-aos="fade-up" className="space-y-4">
+          <div data-aos="fade-down" className="space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter md:text-5xl text-gray-800 transition-all duration-300 transform hover:-translate-y-1 hover:text-indigo-600 cursor-pointer">
               ¿Por Qué Elegirnos?
             </h2>
@@ -67,7 +58,6 @@ function Card() {
               <h2 className="font-sans m-0 text-indigo-600 font-black text-[20px] underline pb-2 group-hover:text-blue-900 group-hover:-translate-y-1 transition-all duration-150 ease-linear">
                 Conoce más de nuestros Servicios
               </h2>
-
               {/* Texto descriptivo */}
               <p className="text-black text-sm md:text-base leading-relaxed">
                 Puedes revisar nuestras diversas opciones de servicio en el
@@ -83,6 +73,7 @@ function Card() {
               </Link>
             </div>
           </div>
+
         </div>
       </div>
     </section>

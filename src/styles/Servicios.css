@@ -119,3 +119,7 @@
     border-radius: 24px;
     transform: translateY(-24px) rotate(-45deg);
 }
+
+.flipped {
+    transform: rotateY(180deg);
+}

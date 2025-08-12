@@ -1,0 +1,89 @@
+/* src/Login.css */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f3f3f3;
+  padding: 10px;
+}
+
+.login-form {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form h2 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-form label {
+  margin-top: 10px;
+  display: block;
+  font-weight: bold;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bfc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #005bb5;
+}
+
+.register-link {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.register-link a {
+  color: #007bfc;
+  text-decoration: none;
+}
+
+.error-message {
+  color: red;
+  font-size: 13px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+
+@media (width >= 768px) {
+  .login-form {
+    padding: 25px;
+    max-width: 500px;
+  }
+
+  .login-form h2 {
+    font-size: 2rem; 
+  }
+
+  .login-form input,
+  .login-form button {
+    font-size: 1.2rem;
+  }
+}
