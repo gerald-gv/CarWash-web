@@ -9,7 +9,6 @@ export const Footer = () => {
     { nombre: "Nosotros", href: "/nosotros" },
     { nombre: "Servicios", href: "/servicios" },
     { nombre: "FAQs", href: "/faqs" },
-    { nombre: "Tus Reservas", href: "/reservas" },
   ];
   return (
     <div className="w-full px-4 bg-slate-800">
@@ -112,7 +111,7 @@ export const Footer = () => {
         {/* Copyright y Redes sociales */}
         <div className="flex flex-col sm:flex-row justify-center items-center py-1 mt-3 border-t border-gray-300">
           <p className="text-sm text-gray-500 ">
-            © 2025 CarWash. Todos los derechos reservados Cibertec.
+            © 2025 CarWashPro. Todos los derechos reservados.
           </p>
         </div>
       </footer>
