@@ -45,15 +45,38 @@ const Login = () => {
 
       const data = await res.json();
 
-      // Validacion de respuestas al fetch
-      if (res.ok) {
-        login(data.user, data.jwt) // Se utiliza login del context
-
-        alert("Se ha logueado con exito");
-        navigate("/");
-      } else {
-        setError(data?.error?.message || "Credenciales incorrectas")
+      if (!res.ok) {
+        setError(data?.error?.message || "Credenciales incorrectas");
+        return;
       }
+
+      const jwt = data.jwt;
+
+      // Se pide segun el usuario logueado junto a su rol
+      const resUser = await fetch(`${API_URL}/api/users/me?populate=role`, {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      });
+
+      if (!resUser.ok) {
+        setError("Error al obtener información del usuario");
+        return;
+      }
+
+      const userWithRole = await resUser.json();
+
+      // Guardamos la d ata de userWithRole y jwt en el context
+      login(userWithRole, jwt);
+      //console.log(userWithRole.role)
+      alert("Se ha logueado con éxito");
+      
+      if (userWithRole.role.name === "Admin"){
+        navigate("/admin")
+      } else {
+        navigate("/")
+      }
+
     } catch (err) {
       console.error(err);
       setError("Error de conexion")
