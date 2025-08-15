@@ -47,7 +47,7 @@ const Servicios = () => {
       //Fetch de reservas por usuario
       try {
         const res = await fetch(
-          `${API_URL}/api/reservas?filters[users_permissions_user][id][$eq]=${user.id}&filters[estado][$ne]=cancelada&populate=servicio`,
+          `${API_URL}/api/reservas?filters[users_permissions_user][id][$eq]=${user.id}&filters[estado][$eq]=pendiente&populate=servicio`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -104,7 +104,7 @@ const Servicios = () => {
                 img={card.img}
                 items={card.items}
                 index={index}
-                reservado={!!reserva} // Confirmacion Booleana (Activa el flip de las cards en reserva)
+                reservado={reserva?.estado === "pendiente"} // Confirmacion Booleana (Activa el flip de las cards en reserva)
                 reservaId={reserva?.reservaId}
                 onCancelarReserva={handleEliminarReservaLocal}
                 onNuevaReserva={handleNuevaReserva}
