@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { Loader2 } from 'lucide-react';
 import "../styles/Login.css";
 
 const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState('');
   const { login } = useContext(AuthContext)
+  const [ load, setLoad ] = useState(false)
 
   const API_URL = import.meta.env.VITE_API_URL
 
@@ -29,6 +31,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
+    setLoad(true)
 
     const { email, password } = formData
 
@@ -80,6 +83,8 @@ const Login = () => {
     } catch (err) {
       console.error(err);
       setError("Error de conexion")
+    } finally {
+      setLoad(false)
     }
 
   };
@@ -111,7 +116,9 @@ const Login = () => {
 
         {error && <p className="error-message">{error}</p>}
 
-        <button type="submit">Iniciar Sesión</button>
+        <button type="submit" disabled={load} className='cursor-pointer transition-colors duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:opacity-80'>
+          {load ? "Procesando..." : "Iniciar Sesión"}
+        </button>
 
         <p className="register-link">
           ¿Aún no estás registrado? <Link to="/registro">Crear cuenta</Link>

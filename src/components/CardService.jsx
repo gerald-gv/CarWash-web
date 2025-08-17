@@ -4,6 +4,7 @@ import borrarIcon from "/images/borrar.png";
 
 const CardService = (props) => {
   const { isAuthenticated, user, token } = useContext(AuthContext);
+  const [ loader, setLoader ] = useState(false)
   const [isFlipped, setIsFlipped] = useState(false);
   const API_URL = import.meta.env.VITE_API_URL;
 
@@ -22,7 +23,7 @@ const CardService = (props) => {
     const hoy = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
 
     // Fetch para  postear las reservas
-
+    setLoader(true)
     try {
       const res = await fetch(`${API_URL}/api/reservas`, {
         method: "POST",
@@ -57,6 +58,8 @@ const CardService = (props) => {
       setIsFlipped(true);
     } catch (err) {
       console.error(err);
+    } finally {
+      setLoader(false)
     }
   };
 
@@ -122,9 +125,9 @@ const CardService = (props) => {
             </p>
             <div className="main-services--card--button">
               <button
-                className={`button button${(props.index % 3) + 1}`}
+                className={`button button${(props.index % 3) + 1} cursor-pointer disabled:cursor-not-allowed disabled:opacity-60 disabled:pointer-events-none`}
                 onClick={handleReservar}
-                disabled={isFlipped}
+                disabled={loader}
                 title={isFlipped ? "Ya está reservado" : "Reservar"}
               >
                 Reservar
