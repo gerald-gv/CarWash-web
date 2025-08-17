@@ -30,7 +30,7 @@ const Reservas = () => {
                 //Se vuelve true al loading de ese enrutado
                 setLoadingReservas(true)
                 const res = await fetch(
-                    `${API_URL}/api/reservas?filters[users_permissions_user][id][$eq]=${user.id}&populate[servicio][fields][0]=titulo&populate[servicio][fields][1]=precio&populate[users_permissions_user][fields][0]=email`,
+                    `${API_URL}/api/reservas?filters[estado][$in]=pendiente&filters[estado][$in]=culminada&filters[users_permissions_user][id][$eq]=${user.id}&populate[servicio][fields][0]=titulo&populate[servicio][fields][1]=precio&populate[users_permissions_user][fields][0]=email`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`
