@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import borrarIcon from "/images/borrar.png";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const CardService = (props) => {
   const { isAuthenticated, user, token } = useContext(AuthContext);
@@ -79,6 +80,8 @@ const CardService = (props) => {
       });
 
       setIsFlipped(true);
+      toast.success("Se ha agregado una nueva reserva en Mis Reservas")
+
     } catch (err) {
       console.error(err);
     } finally {

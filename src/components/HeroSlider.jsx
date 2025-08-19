@@ -4,8 +4,8 @@ import SwiperHero from "./SwiperHero"
 
 const HeroSlider = () => {
     return (
-        <section className="h-full overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-2 h-full">
+        <section className="overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-2 ">
                 
                 {/* Contenedor de Slider - Slider Hero */}
 
