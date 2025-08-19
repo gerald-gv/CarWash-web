@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Imagen2 from "/images/Logo.png";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { MenuIcon } from "lucide-react";
@@ -9,6 +9,7 @@ import { MenuIcon } from "lucide-react";
 const Navbar = () => {
 
   const { user, isAuthenticated, logout } = useContext(AuthContext) // Se usa el context proveedor
+  const [open, setOpen] = useState(false)
 
 
   const menuItems = [
@@ -17,7 +18,7 @@ const Navbar = () => {
     { name: "Servicios", path: "/servicios" },
     { name: "FAQs", path: "/faqs" },
     ...(isAuthenticated ? [{ // Uso de Spread Operator en arrays de objetos
-       name: "Tus Reservas", path: "/reservas"
+      name: "Tus Reservas", path: "/reservas"
     }] : [])
   ];
 
@@ -74,7 +75,7 @@ const Navbar = () => {
         </nav>
 
         {/* Menú Móvil */}
-        <Sheet>
+        <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <button className="lg:hidden bg-transparent" >
               <MenuIcon className="h-6 w-6" />
@@ -93,7 +94,7 @@ const Navbar = () => {
               <ul className="flex flex-col gap-4 py-6">
                 {menuItems.map(item => (
                   <li key={item.name}>
-                    <Link to={item.path} className="text-lg font-medium">
+                    <Link to={item.path} className="text-lg font-medium" onClick={() => setOpen(false)}>
                       {item.name}
                     </Link>
                   </li>
@@ -103,7 +104,10 @@ const Navbar = () => {
 
                 {isAuthenticated ? (
                   <button className="text-white inline-flex rounded-full border-2 bg-red-600 px-4 py-2 text-lg font-semibold shadow-xl"
-                    onClick={logout}
+                    onClick={() => {
+                      logout();
+                      setOpen(false); // 👈 cerrar al cerrar sesión también
+                    }}
                   >
                     Cerrar Sesion
                   </button>
