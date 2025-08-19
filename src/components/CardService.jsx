@@ -36,9 +36,9 @@ const CardService = (props) => {
         scrollbarPadding: false
       })
 
-      if (resultado.isConfirmed){
+      if (resultado.isConfirmed) {
         navigate("/login")
-      } else if (resultado.isDenied){
+      } else if (resultado.isDenied) {
         navigate("/registro")
       }
       return;
@@ -92,8 +92,18 @@ const CardService = (props) => {
 
   //Funcion asincrona para cancelar
   const handleCancelar = async () => {
-    const confirmacion = confirm("¿Estás seguro de cancelar esta reserva?");
-    if (!confirmacion) return;
+    const resultado = await Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta reserva será cancelada',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: "#10B981",
+      cancelButtonColor: "#EF4444",
+      confirmButtonText: "Si, cancelar",
+      cancelButtonText: "No, volver",
+      scrollbarPadding: false
+    })
+    if (!resultado.isConfirmed) return;
 
     //console.log("ID reserva para cancelar:", props.reservaId);
 
@@ -119,6 +129,7 @@ const CardService = (props) => {
       }
 
       setIsFlipped(false);
+      toast.success("Se cancelo la reserva")
 
       //Llama al handleEliminarReservaLocal
       props.onCancelarReserva(props.reservaId);
