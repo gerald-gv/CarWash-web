@@ -15,6 +15,8 @@ const SkeletonCard = () => {
                 <Skeleton className="h-4 w-2/3"/>
                 <Skeleton className="h-4 w-2/3"/>
                 <Skeleton className="h-4 w-2/3"/>
+                <Skeleton className="h-4 w-2/3"/>
+                <Skeleton className="h-4 w-2/3"/>
             </div>
 
             <div className="flex justify-center">

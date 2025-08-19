@@ -1,11 +1,14 @@
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import borrarIcon from "/images/borrar.png";
+import Swal from "sweetalert2";
 
 const CardService = (props) => {
   const { isAuthenticated, user, token } = useContext(AuthContext);
-  const [ loader, setLoader ] = useState(false)
+  const [loader, setLoader] = useState(false)
   const [isFlipped, setIsFlipped] = useState(false);
+  const navigate = useNavigate()
   const API_URL = import.meta.env.VITE_API_URL;
 
   // Inicializa el estado según si está reservado
@@ -16,7 +19,27 @@ const CardService = (props) => {
   //Funcion asincrona para reserva
   const handleReservar = async () => {
     if (!isAuthenticated) {
-      alert("Debes iniciar sesión para reservar");
+
+      const resultado = await Swal.fire({
+        title: "Necesitas una cuenta",
+        icon: "warning",
+        text: "Debes Registrarte o Iniciar Sesion para continuar.",
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonColor: "#10B981",
+        denyButtonColor: "#2563EB",
+        cancelButtonColor: "#EF4444",
+        confirmButtonText: "Iniciar Sesion",
+        denyButtonText: "Registrarse",
+        cancelButtonText: "Cancelar",
+        scrollbarPadding: false
+      })
+
+      if (resultado.isConfirmed){
+        navigate("/login")
+      } else if (resultado.isDenied){
+        navigate("/registro")
+      }
       return;
     }
 
@@ -104,9 +127,8 @@ const CardService = (props) => {
   return (
     <div className="flip-card">
       <article
-        className={`flip-card-inner card main-services--card${
-          (props.index % 3) + 1
-        } ${isFlipped ? "flipped" : ""}`} 
+        className={`flip-card-inner card main-services--card${(props.index % 3) + 1
+          } ${isFlipped ? "flipped" : ""}`}
       >
         {/* Cara frontal */}
         <div className={"flip-card-front"}>

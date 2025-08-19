@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import "../styles/Registro.css";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import Swal from 'sweetalert2';
 
 const Registro = () => {
   const [error, setError] = useState('');
@@ -56,7 +57,12 @@ const Registro = () => {
 
         login(data.user, data.jwt) // Utilizamos el login del context
 
-        alert('Usuario registrado correctamente!');
+        Swal.fire({
+          title: 'Registro Completado',
+          text: 'Usuario registrado correctamente!',
+          icon: 'success',
+          confirmButtonText: "De Acuerdo"
+        })
         navigate('/');
       } else {
         setError( data?.error?.message || "Error al Registrar Usuario");

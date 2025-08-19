@@ -1,14 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
-import { Loader2 } from 'lucide-react';
+import Swal from 'sweetalert2';
 import "../styles/Login.css";
 
 const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState('');
   const { login } = useContext(AuthContext)
-  const [ load, setLoad ] = useState(false)
+  const [load, setLoad] = useState(false)
 
   const API_URL = import.meta.env.VITE_API_URL
 
@@ -72,9 +72,15 @@ const Login = () => {
       // Guardamos la d ata de userWithRole y jwt en el context
       login(userWithRole, jwt);
       //console.log(userWithRole.role)
-      alert("Se ha logueado con éxito");
       
-      if (userWithRole.role.name === "Admin"){
+      Swal.fire({
+        title: "Login Exitoso",
+        text: "Se ha logueado con éxito! ",
+        icon: "success",
+        confirmButtonText: "De Acuerdo"
+      })
+
+      if (userWithRole.role.name === "Admin") {
         navigate("/admin")
       } else {
         navigate("/")
