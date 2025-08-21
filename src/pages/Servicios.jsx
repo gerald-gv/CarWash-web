@@ -7,6 +7,7 @@ import { AuthContext } from "../context/AuthContext";
 const Servicios = () => {
   const [cardsData, setCardsData] = useState([]);
   const [loadingServicios, SetLoadingServicios] = useState(true);
+  const [deshabilitarBotones, setDeshabilitarBotones] = useState(false)
   const [reservasUsuario, setReservasUsuario] = useState([]);
   const API_URL = import.meta.env.VITE_API_URL;
   const { user, token, isAuthenticated } = useContext(AuthContext);
@@ -118,6 +119,8 @@ const Servicios = () => {
                   reservaId={reserva?.reservaId}
                   onCancelarReserva={handleEliminarReservaLocal}
                   onNuevaReserva={handleNuevaReserva}
+                  deshabilitarBotones={deshabilitarBotones}
+                  setDeshabilitarBotones={setDeshabilitarBotones}
                 />
               )
             })

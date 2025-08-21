@@ -7,7 +7,6 @@ import toast from "react-hot-toast";
 
 const CardService = (props) => {
   const { isAuthenticated, user, token } = useContext(AuthContext);
-  const [loader, setLoader] = useState(false)
   const [isFlipped, setIsFlipped] = useState(false);
   const navigate = useNavigate()
   const API_URL = import.meta.env.VITE_API_URL;
@@ -47,7 +46,7 @@ const CardService = (props) => {
     const hoy = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
 
     // Fetch para  postear las reservas
-    setLoader(true)
+    props.setDeshabilitarBotones(true)
     try {
       const res = await fetch(`${API_URL}/api/reservas`, {
         method: "POST",
@@ -68,7 +67,22 @@ const CardService = (props) => {
       const data = await res.json();
 
       if (!res.ok) {
-        alert(data.error?.message || "Error al reservar el servicio");
+        const mensaje = data.error?.message;
+        if (mensaje === "Ya tienes una reserva pendiente para este día.") {
+          Swal.fire({
+            icon: "warning",
+            title: "Reserva no permitida",
+            text: "Ya tienes una reserva pendiente para este día.",
+            confirmButtonText: "Entendido",
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: mensaje || "Ocurrió un error inesperado",
+            confirmButtonText: "Aceptar",
+          });
+        }
         return;
       }
 
@@ -85,7 +99,7 @@ const CardService = (props) => {
     } catch (err) {
       console.error(err);
     } finally {
-      setLoader(false)
+      props.setDeshabilitarBotones(false)
     }
   };
 
@@ -163,7 +177,7 @@ const CardService = (props) => {
               <button
                 className={`button button${(props.index % 3) + 1} cursor-pointer disabled:cursor-not-allowed disabled:opacity-60 disabled:pointer-events-none`}
                 onClick={handleReservar}
-                disabled={loader}
+                disabled={props.deshabilitarBotones}
                 title={isFlipped ? "Ya está reservado" : "Reservar"}
               >
                 Reservar
