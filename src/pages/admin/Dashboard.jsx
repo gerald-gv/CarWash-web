@@ -13,6 +13,15 @@ const Dashboard = () => {
 
   useEffect(() => {
 
+    const formatHora = (horaStr) => {
+      const date = new Date(`1970-01-01T${horaStr}`);
+      return date.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      });
+    };
+
     const fetchReservasGenerales = async () => {
 
       if (loading) return
@@ -20,7 +29,8 @@ const Dashboard = () => {
 
       try {
         setLoadReservas(true)
-        const res = await fetch(`${API_URL}/api/reservas?filters[estado][$in]=pendiente&filters[estado][$in]=culminada&populate[servicio][fields][0]=titulo&populate[servicio][fields][1]=precio&populate[users_permissions_user][fields][0]=email`, {
+        const res = await fetch(`${API_URL}/api/reservas?filters[estado][$in]=pendiente&filters[estado][$in]=culminada&populate[servicio][fields][0]=titulo&populate[servicio][fields][1]=precio&populate[users_permissions_user][fields][0]=email
+          &populate[franja][fields][0]=nombre&populate[franja][fields][1]=horaInicio&populate[franja][fields][2]=horaFin`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -35,7 +45,10 @@ const Dashboard = () => {
           email: reserva.users_permissions_user?.email || "Sin email",
           servicio: reserva.servicio?.titulo || "Sin servicio",
           monto: reserva.servicio?.precio || 0,
-          estado: reserva.estado
+          estado: reserva.estado,
+          franja: reserva.franja
+            ? `${formatHora(reserva.franja.horaInicio)} - ${formatHora(reserva.franja.horaFin)}`
+            : "Sin horario",
         }))
 
         setReservasGlobales(reservasFormat)
@@ -70,8 +83,8 @@ const Dashboard = () => {
 
       // Establecer un nuevo estado a las reservas para re-renderizar la pagina (Persistencia Visual)
       setReservasGlobales(prev => prev.map(r =>
-          r.id === reservaId ? { ...r, estado: "culminada" } : r
-        )
+        r.id === reservaId ? { ...r, estado: "culminada" } : r
+      )
       );
 
     } catch (err) {
@@ -116,7 +129,7 @@ const Dashboard = () => {
           ) : (
             <p className='text-center text-gray-900 mt-5'>No hay Reservas Culminadas</p>
           )}
-          
+
         </TabsContent>
       </Tabs>
     </div>

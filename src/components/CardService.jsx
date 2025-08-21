@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 const CardService = (props) => {
   const { isAuthenticated, user, token } = useContext(AuthContext);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [franjaSeleccionada, setFranjaSeleccionada] = useState("");
   const navigate = useNavigate()
   const API_URL = import.meta.env.VITE_API_URL;
 
@@ -43,6 +44,17 @@ const CardService = (props) => {
       return;
     }
 
+    if (!franjaSeleccionada) {
+      Swal.fire({
+        icon: "warning",
+        title: "Debes seleccionar una franja",
+        confirmButtonText: "Entendido",
+      });
+      return;
+    }
+
+    const franjaId = Number(franjaSeleccionada);
+
     const hoy = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
 
     // Fetch para  postear las reservas
@@ -60,11 +72,14 @@ const CardService = (props) => {
             fecha_reserva: hoy,
             estado: "pendiente",
             servicio: props.id,
+            franja: franjaId
           },
         }),
       });
 
+      console.log("Franja seleccionada:", franjaSeleccionada, "franjaId:", franjaId);
       const data = await res.json();
+      console.log("📥 Respuesta de Strapi:", data);
 
       if (!res.ok) {
         const mensaje = data.error?.message;
@@ -152,6 +167,15 @@ const CardService = (props) => {
     }
   };
 
+  const formatHora = (horaStr) => {
+    const date = new Date(`1970-01-01T${horaStr}`);
+    return date.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+  };
+
   return (
     <div className="flip-card">
       <article
@@ -173,7 +197,30 @@ const CardService = (props) => {
             <p>
               Precio: <span>{"s/" + props.precio}</span>
             </p>
+
+            <div className="mb-4">
+              <label htmlFor={`franja-${props.id}`}
+                className="block mb-1 font-medium">
+                Selecciona un horario:
+              </label>
+
+              <select value={franjaSeleccionada}
+                onChange={(e) => setFranjaSeleccionada(e.target.value)}>
+
+                <option value="">-- Elige una franja --</option>
+                {props.franjas?.map((f) => (
+                  <option key={f.id} value={f.id}>
+                    {f.nombre} ({formatHora(f.horaInicio)} - {formatHora(f.horaFin)})
+                  </option>
+
+                ))}
+
+              </select>
+            </div>
+
+
             <div className="main-services--card--button">
+
               <button
                 className={`button button${(props.index % 3) + 1} cursor-pointer disabled:cursor-not-allowed disabled:opacity-60 disabled:pointer-events-none`}
                 onClick={handleReservar}

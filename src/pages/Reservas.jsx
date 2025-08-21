@@ -12,6 +12,15 @@ const Reservas = () => {
     const navigate = useNavigate();
     const API_URL = import.meta.env.VITE_API_URL;
 
+    const formatHora = (horaStr) => {
+        const date = new Date(`1970-01-01T${horaStr}`);
+        return date.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true,
+        });
+    };
+
     useEffect(() => {
 
         const fetchReservasUsuario = async () => {
@@ -30,7 +39,8 @@ const Reservas = () => {
                 //Se vuelve true al loading de ese enrutado
                 setLoadingReservas(true)
                 const res = await fetch(
-                    `${API_URL}/api/reservas?filters[estado][$in]=pendiente&filters[estado][$in]=culminada&filters[users_permissions_user][id][$eq]=${user.id}&populate[servicio][fields][0]=titulo&populate[servicio][fields][1]=precio&populate[users_permissions_user][fields][0]=email`,
+                    `${API_URL}/api/reservas?filters[estado][$in]=pendiente&filters[estado][$in]=culminada&filters[users_permissions_user][id][$eq]=${user.id}&populate[servicio][fields][0]=titulo&populate[servicio][fields][1]=precio&populate[users_permissions_user][fields][0]=email
+                    &populate[franja][fields][0]=nombre&populate[franja][fields][1]=horaInicio&populate[franja][fields][2]=horaFin`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`
@@ -46,6 +56,7 @@ const Reservas = () => {
                     servicio: reserva.servicio?.titulo || "Sin servicio",
                     monto: reserva.servicio?.precio || 0,
                     estado: reserva.estado,
+                    franja: reserva.franja ? `${formatHora(reserva.franja.horaInicio)} - ${formatHora(reserva.franja.horaFin)}` : "Sin horario",
                 }))
 
                 setReservas(reservasMaps);

@@ -9,6 +9,7 @@ const Servicios = () => {
   const [loadingServicios, SetLoadingServicios] = useState(true);
   const [deshabilitarBotones, setDeshabilitarBotones] = useState(false)
   const [reservasUsuario, setReservasUsuario] = useState([]);
+  const [franjas, setFranjas] = useState([]);
   const API_URL = import.meta.env.VITE_API_URL;
   const { user, token, isAuthenticated } = useContext(AuthContext);
 
@@ -39,6 +40,28 @@ const Servicios = () => {
 
     fetchServicios();
   }, []);
+
+  useEffect(() => {
+  const fetchFranjas = async () => {
+    try {
+      const res = await fetch(`${API_URL}/api/franjas?filters[activo][$eq]=true`);
+      const data = await res.json();
+
+      const franjasFormateadas = data.data.map(f => ({
+        id: f.id,
+        nombre: f.nombre,
+        horaInicio: f.horaInicio,
+        horaFin: f.horaFin
+      }));
+
+      setFranjas(franjasFormateadas);
+    } catch (err) {
+      console.error("Error al cargar franjas:", err);
+    }
+  };
+
+  fetchFranjas();
+}, []);
 
   useEffect(() => {
     const fetchReservasUsuario = async () => {
@@ -121,6 +144,7 @@ const Servicios = () => {
                   onNuevaReserva={handleNuevaReserva}
                   deshabilitarBotones={deshabilitarBotones}
                   setDeshabilitarBotones={setDeshabilitarBotones}
+                  franjas={franjas}
                 />
               )
             })

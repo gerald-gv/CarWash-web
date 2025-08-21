@@ -11,6 +11,7 @@ const Tabla = ({ reserva, onCulminarReserva, isAdmin }) => {
                     <TableHead>Email</TableHead>
                     <TableHead>Servicio</TableHead>
                     <TableHead>Estado</TableHead>
+                    <TableHead>Turno</TableHead>
                     <TableHead className= "text-right">Monto</TableHead>
                     {isAdmin && (
                         <TableHead className="text-center">Culminar Reserva</TableHead>
@@ -23,6 +24,7 @@ const Tabla = ({ reserva, onCulminarReserva, isAdmin }) => {
                         <TableCell className="font-medium text-gray-700">{r.email}</TableCell>
                         <TableCell className="font-medium text-gray-700">{r.servicio}</TableCell>
                         <TableCell>{getEstadoBadge(r.estado)}</TableCell>
+                        <TableCell>{r.franja}</TableCell>
                         <TableCell className= "text-right font-semibold text-green-800">S/. {r.monto}</TableCell>
                         {isAdmin ? (
                             <TableCell className="text-center">
