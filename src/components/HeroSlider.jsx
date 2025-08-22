@@ -16,9 +16,9 @@ const HeroSlider = () => {
                 {/* Contenedor Hero - HeroSection */}
 
                 <div className="bg-sky-500 flex flex-col items-center justify-center p-8 text-center md:text-left md:items-start md:order-first" data-aos="fade-right">
-                    <h1 className="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-extrabold leading-tight mb-4" data-aos="fade-down">
+                    <h1 className="text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold leading-tight mb-4" data-aos="fade-down">
                         <div>Tu Coche,</div>
-                        <div className="md:inline-block">Brillante Como Nuevo</div>
+                        <div className="md:inline-block">Brillante Como nuevo</div>
                     </h1>
                     <p className="text-white/90 text-lg md:text-xl lg:text-2xl mb-8 max-w-lg xl:max-w-xl" data-aos="fade-up ">Nuestro servicio te ofrece los mejores autolavados para que su vehiculo quede reluciente por dentro y por fuera.</p>
                     <Link to="/servicios" data-aos="zoom-in">

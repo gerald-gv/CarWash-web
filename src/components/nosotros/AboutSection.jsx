@@ -31,17 +31,19 @@ const AboutSection = () => {
                             </p>
                             <p className='border-l-4 border-sky-500 pl-6 bg-white/80 p-4 rounded-r-lg shadow-sm' data-aos="fade-right">
                                 Actualmente somos reconocidos por nuestra excelente atencion al cliente a un buen nivel de detalle,
-                                desde lavados exterieros y manteniendo impecable el vehiculo.
+                                desde lavados exteriores y manteniendo impecable el vehiculo.
                             </p>
                         </div>
                     </div>
 
                     {/*Columna Imagen */}
-                    
+
                     <div className='relative'>
-                        <div>
-                            
-                        </div>
+                        <div className='absolute inset-0 bg-gradient-to-r from-sky-600 to-slate-800 rounded-2xl transform rotate-2'></div>
+                        <img
+                            src='/images/lavado.png'
+                            className="relative rounded-2xl shadow-2xl w-full h-auto transform -rotate-1 hover:rotate-0 transition-transform duration-300"
+                        />
                     </div>
                 </div>
             </div>
