@@ -38,7 +38,7 @@ const AboutSection = () => {
 
                     {/*Columna Imagen */}
 
-                    <div className='relative'>
+                    <div className='relative' data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1500">
                         <div className='absolute inset-0 bg-gradient-to-r from-sky-600 to-slate-800 rounded-2xl transform rotate-2'></div>
                         <img
                             src='/images/lavado.png'
