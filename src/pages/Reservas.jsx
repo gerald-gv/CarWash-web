@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '@/context/AuthContext'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Tabla from '@/components/reservas/Tabla'
+import { formatHora } from '@/utils/formatHora'
 
 const Reservas = () => {
 
@@ -12,14 +13,6 @@ const Reservas = () => {
     const navigate = useNavigate();
     const API_URL = import.meta.env.VITE_API_URL;
 
-    const formatHora = (horaStr) => {
-        const date = new Date(`1970-01-01T${horaStr}`);
-        return date.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: true,
-        });
-    };
 
     useEffect(() => {
 
@@ -56,6 +49,7 @@ const Reservas = () => {
                     servicio: reserva.servicio?.titulo || "Sin servicio",
                     monto: reserva.servicio?.precio || 0,
                     estado: reserva.estado,
+                    fecha: reserva.fecha_reserva || "Sin Fecha" ,
                     franja: reserva.franja ? `${formatHora(reserva.franja.horaInicio)} - ${formatHora(reserva.franja.horaFin)}` : "Sin horario",
                 }))
 

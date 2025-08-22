@@ -1,6 +1,6 @@
 import React from 'react'
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { getEstadoBadge } from '@/utils/getEstadoBadge'
+import { getEstadoBadge } from '@/components/helpers/getEstadoBadge'
 
 const Tabla = ({ reserva, onCulminarReserva, isAdmin }) => {
     return (
@@ -11,6 +11,7 @@ const Tabla = ({ reserva, onCulminarReserva, isAdmin }) => {
                     <TableHead>Email</TableHead>
                     <TableHead>Servicio</TableHead>
                     <TableHead>Estado</TableHead>
+                    <TableHead>Fecha</TableHead>
                     <TableHead>Turno</TableHead>
                     <TableHead className= "text-right">Monto</TableHead>
                     {isAdmin && (
@@ -24,6 +25,7 @@ const Tabla = ({ reserva, onCulminarReserva, isAdmin }) => {
                         <TableCell className="font-medium text-gray-700">{r.email}</TableCell>
                         <TableCell className="font-medium text-gray-700">{r.servicio}</TableCell>
                         <TableCell>{getEstadoBadge(r.estado)}</TableCell>
+                        <TableCell>{r.fecha}</TableCell>
                         <TableCell>{r.franja}</TableCell>
                         <TableCell className= "text-right font-semibold text-green-800">S/. {r.monto}</TableCell>
                         {isAdmin ? (

@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import borrarIcon from "/images/borrar.png";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import { formatHora } from "@/utils/formatHora";
 
 const CardService = (props) => {
   const { isAuthenticated, user, token } = useContext(AuthContext);
@@ -79,7 +80,6 @@ const CardService = (props) => {
 
       console.log("Franja seleccionada:", franjaSeleccionada, "franjaId:", franjaId);
       const data = await res.json();
-      console.log("📥 Respuesta de Strapi:", data);
 
       if (!res.ok) {
         const mensaje = data.error?.message;
@@ -167,15 +167,6 @@ const CardService = (props) => {
     }
   };
 
-  const formatHora = (horaStr) => {
-    const date = new Date(`1970-01-01T${horaStr}`);
-    return date.toLocaleTimeString([], {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true,
-    });
-  };
-
   return (
     <div className="flip-card">
       <article
@@ -205,7 +196,7 @@ const CardService = (props) => {
               </label>
 
               <select value={franjaSeleccionada}
-                onChange={(e) => setFranjaSeleccionada(e.target.value)}>
+                onChange={(e) => setFranjaSeleccionada(e.target.value)} className="border rounded-md text-gray-700 bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600">
 
                 <option value="">-- Elige una franja --</option>
                 {props.franjas?.map((f) => (

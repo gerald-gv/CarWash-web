@@ -46,6 +46,7 @@ const Dashboard = () => {
           servicio: reserva.servicio?.titulo || "Sin servicio",
           monto: reserva.servicio?.precio || 0,
           estado: reserva.estado,
+          fecha: reserva.fecha_reserva || "Sin Fecha" ,
           franja: reserva.franja
             ? `${formatHora(reserva.franja.horaInicio)} - ${formatHora(reserva.franja.horaFin)}`
             : "Sin horario",

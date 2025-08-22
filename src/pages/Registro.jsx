@@ -3,11 +3,13 @@ import "../styles/Registro.css";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import Swal from 'sweetalert2';
+import { isValidEmail } from '@/utils/validateEmail';
 
 const Registro = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const { login } = useContext(AuthContext)
+  const [load, setLoad] = useState(false)
 
   const API_URL = import.meta.env.VITE_API_URL
 
@@ -23,22 +25,31 @@ const Registro = () => {
   // handleChange generico, establece nuevos cambios al formData
   const handleChange = (e) => {
     const { name, value } = e.target // desestructuracion para inputs
-    setFormData(prev => ({ 
+    setFormData(prev => ({
       ...prev,
-      [name]: value})) // Copia lo anterior y establece lo nuevo segun el name y value
+      [name]: value
+    })) // Copia lo anterior y establece lo nuevo segun el name y value
   }
-  
+
 
   //handleRegister asincrono para realizar fetch
   const handleRegister = async (e) => {
     e.preventDefault();
     setError('');
+    setLoad(true)
 
     const { username, email, password, confirmPassword } = formData;
+
+    if (!isValidEmail(email)) {
+      setError("Correo Electronico Invalido")
+      setLoad(false)
+      return
+    }
 
     //validacion de contraseña
     if (password !== confirmPassword) {
       setError('Las contraseñas no coinciden');
+      setLoad(false)
       return;
     }
 
@@ -65,12 +76,14 @@ const Registro = () => {
         })
         navigate('/');
       } else {
-        setError( data?.error?.message || "Error al Registrar Usuario");
+        setError(data?.error?.message || "Error al Registrar Usuario");
       }
-      
-    } catch (err){
+
+    } catch (err) {
       console.error(err);
       setError("Error de Conexion");
+    } finally {
+      setLoad(false)
     }
 
     // Verificar Token y Usuario Registado
@@ -126,7 +139,9 @@ const Registro = () => {
 
         {error && <p className="error-message">{error}</p>}
 
-        <button type="submit">Crear cuenta</button>
+        <button type="submit" disabled={load} className='cursor-pointer transition-colors duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:opacity-80'>
+          {load ? "Procesando..." : "Crear Cuenta"}
+        </button>
 
         <p className="login-link">
           ¿Ya tienes cuenta? <Link to="/login">Iniciar sesión</Link>
