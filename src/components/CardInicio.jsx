@@ -1,11 +1,12 @@
 import Imagen from "/images/SobreNosotros.png";
 import Imagen2 from "/images/Servicios.png";
+import Imagen3 from "/images/Preguntas.png";
 import { Link } from "react-router-dom";
 
 function Card() {
   return (
-    <section className="w-full py-12 md:py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col items-center text-center">
+    <section className="w-full py-16 md:py-24 bg-background">
+      <div className="max-w-7xl mx-auto py-20 px-4 md:px-6 flex flex-col items-center text-center">
         <div className="flex flex-col items-center justify-center text-center mb-12">
           <div data-aos="fade-down" className="space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter md:text-5xl text-gray-800 transition-all duration-300 transform hover:-translate-y-1 hover:text-indigo-600 cursor-pointer">
@@ -19,7 +20,10 @@ function Card() {
 
         {/*Contenedor Cards */}
 
-        <div data-aos="fade-up" className="grid gap-8 md:grid-cols-2 w-full max-w-6xl mx-auto">
+        <div
+          data-aos="fade-up"
+          className="grid gap-8 md:grid-cols-2 w-full max-w-6xl mx-auto"
+        >
           {/* Card 1 */}
           <div data-aos="fade-right">
             <div className="shadow-2xl shadow-black/60 hover:shadow-2xl hover:shadow-blue-900 hover:shadow-[0_20px_50px_rgba(99,102,241,0.3)] relative group bg-neutral-200 text-white rounded-xl overflow-hidden w-full md:w-[95%] m-auto p-6 transition-all duration-300 ease-in-out hover:[transform:perspective(1000px)_rotateY(6deg)_rotateX(1deg)]">
@@ -73,8 +77,40 @@ function Card() {
               </Link>
             </div>
           </div>
-
         </div>
+      </div>
+      <div data-aos="fade-left">
+      <div
+        className="shadow-2xl shadow-black/60 hover:shadow-2xl hover:shadow-indigo-900 hover:shadow-[0_20px_50px_rgba(99,102,241,0.3)] relative group bg-neutral-200 py-16 px-6 md:px-12 lg:px-20 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 rounded-2xl transition-all duration-500 ease-in-out transform hover:-translate-y-1"
+      >
+        {/* Imagen */}
+        <div className="transition-opacity duration-300 hover:opacity-85 md:w-1/2 flex justify-center">
+          <img
+            src={Imagen3}
+            alt="Carwash service"
+            className="rounded-2xl shadow-xl object-cover"
+          />
+        </div>
+
+        {/* Texto */}
+        <div className="md:w-1/2 space-y-6 text-center md:text-left">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 transition-all duration-300 transform hover:-translate-y-1 hover:text-indigo-600 cursor-pointer">
+            ¿Tienes dudas sobre nuestro servicio?
+          </h2>
+          <p className="leading-relaxed">
+            En esta sección encontrarás las respuestas a las preguntas más
+            comunes sobre nuestro servicio de carwash. Nuestro objetivo es
+            brindarte toda la información que necesites para que tu experiencia
+            sea rápida, confiable y sin dudas.
+          </p>
+          <Link
+            to="/FAQs"
+            className="inline-block bg-sky-600 text-white hover:bg-sky-500 hover:shadow-lg rounded-xl px-10 py-3 text-base md:text-lg font-semibold cursor-pointer transition-all duration-300 ease-in-out transform hover:-translate-y-1"
+          >
+            Ver FAQs
+          </Link>
+        </div>
+      </div>
       </div>
     </section>
   );
