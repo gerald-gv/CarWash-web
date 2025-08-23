@@ -3,6 +3,8 @@ import { AuthContext } from '@/context/AuthContext'
 import NavAdmin from '@/components/admin/NavAdmin'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Tabla from '@/components/reservas/Tabla'
+import { paginateItems } from '@/components/helpers/getPagination'
+import PaginatedTable from '@/components/reservas/PaginationTable'
 
 const Dashboard = () => {
 
@@ -10,6 +12,11 @@ const Dashboard = () => {
   const [loadReservas, setLoadReservas] = useState(true); // Estado local de carga
   const [reservasGlobales, setReservasGlobales] = useState([]);
   const API_URL = import.meta.env.VITE_API_URL;
+
+  // Estados para pagination
+  const [currentPagePendientes, setCurrentPagePendientes] = useState(1)
+  const [currentPageCulminadas, setCurrentPageCulminadas] = useState(1)
+  const itemsPerPage = 10
 
   useEffect(() => {
 
@@ -46,7 +53,7 @@ const Dashboard = () => {
           servicio: reserva.servicio?.titulo || "Sin servicio",
           monto: reserva.servicio?.precio || 0,
           estado: reserva.estado,
-          fecha: reserva.fecha_reserva || "Sin Fecha" ,
+          fecha: reserva.fecha_reserva || "Sin Fecha",
           franja: reserva.franja
             ? `${formatHora(reserva.franja.horaInicio)} - ${formatHora(reserva.franja.horaFin)}`
             : "Sin horario",
@@ -96,6 +103,9 @@ const Dashboard = () => {
   const pendientes = reservasGlobales.filter(r => r.estado === "pendiente");
   const culminadas = reservasGlobales.filter(r => r.estado === "culminada");
 
+  const { currentItems: pendientesPag } = paginateItems({ items: pendientes, currentPage: currentPagePendientes, itemsPerPage })
+  const { currentItems: culminadasPag } = paginateItems({ items: culminadas, currentPage: currentPageCulminadas, itemsPerPage })
+
 
   return (
     <div>
@@ -114,7 +124,17 @@ const Dashboard = () => {
           {loadReservas ? (
             <p>Cargando Reservas...</p>
           ) : pendientes.length > 0 ? (
-            <Tabla reserva={pendientes} onCulminarReserva={culminarReservas} isAdmin />
+            <>
+              <Tabla reserva={pendientesPag} onCulminarReserva={culminarReservas} isAdmin />
+              <PaginatedTable
+                currentPage={currentPagePendientes}
+                setCurrentPage={setCurrentPagePendientes}
+                totalItems={pendientes.length}
+                itemsPerPage={itemsPerPage}
+              />
+            </>
+
+
           ) : (
             <p className='text-center text-gray-900 mt-5'>No hay Reservas Pendientes</p>
           )}
@@ -126,7 +146,15 @@ const Dashboard = () => {
           {loadReservas ? (
             <p>Cargando Reservas...</p>
           ) : culminadas.length > 0 ? (
-            <Tabla reserva={culminadas} />
+            <>
+              <Tabla reserva={culminadasPag} />
+              <PaginatedTable
+                currentPage={currentPageCulminadas}
+                setCurrentPage={setCurrentPageCulminadas}
+                totalItems={culminadas.length}
+                itemsPerPage={itemsPerPage}
+              />
+            </>
           ) : (
             <p className='text-center text-gray-900 mt-5'>No hay Reservas Culminadas</p>
           )}
