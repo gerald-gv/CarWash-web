@@ -5,6 +5,7 @@ import borrarIcon from "/images/borrar.png";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { formatHora } from "@/utils/formatHora";
+import { isFranjaVencida } from "@/utils/isFranjaVencida";
 
 const CardService = (props) => {
   const { isAuthenticated, user, token } = useContext(AuthContext);
@@ -200,8 +201,9 @@ const CardService = (props) => {
 
                 <option value="">-- Elige una franja --</option>
                 {props.franjas?.map((f) => (
-                  <option key={f.id} value={f.id}>
+                  <option key={f.id} value={f.id} disabled={isFranjaVencida(f.horaFin)}>
                     {f.nombre} ({formatHora(f.horaInicio)} - {formatHora(f.horaFin)})
+                    {isFranjaVencida(f.horaFin) ? " - No disponible" : ""}
                   </option>
 
                 ))}
