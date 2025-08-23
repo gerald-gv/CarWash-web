@@ -1,6 +1,10 @@
 export const isFranjaVencida = (horaFin) => {
-    
+
   const ahora = new Date();
-  const fin = new Date(`1970-01-01T${horaFin}`);
+  const [horas, minutos] = horaFin.split(":").map(Number);
+
+  const fin = new Date(ahora);
+  fin.setHours(horas, minutos, 0, 0);
+  
   return ahora > fin;
 };
