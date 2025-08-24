@@ -25,26 +25,44 @@ const PaginatedTable = ({ currentPage, setCurrentPage, totalItems, itemsPerPage 
   if (totalPages <= 1) return null
 
   return (
-    <Pagination className="mt-4 flex justify-center">
-      <PaginationPrevious onClick={() => setCurrentPage(p => Math.max(p - 1, 1))}>
-        Anterior
-      </PaginationPrevious>
-
+    <Pagination className="mt-4">
       <PaginationContent>
+        {/* Botón Previous */}
+        <PaginationPrevious onClick={() => setCurrentPage(p => Math.max(p - 1, 1))}
+          className={currentPage === 1 ? "pointer-events-none opacity-50" // Deshabilitado si está en la primera
+            : "cursor-pointer hover:bg-muted"
+          }
+        >
+          Anterior
+        </PaginationPrevious>
+
+        {/* Números Pag */}
         {paginationItems.map((item, idx) =>
           item.type === "ellipsis" ? (
             <PaginationEllipsis key={item.key || idx} />
           ) : (
-            <PaginationItem key={item.page} disabled={item.page === currentPage}>
-              <PaginationLink onClick={() => setCurrentPage(item.page)}>{item.page}</PaginationLink>
+            <PaginationItem key={item.page}>
+              <PaginationLink
+                className="cursor-pointer"
+                isActive={item.page === currentPage}
+                onClick={() => setCurrentPage(item.page)}
+              >
+                {item.page}
+              </PaginationLink>
             </PaginationItem>
           )
         )}
-      </PaginationContent>
 
-      <PaginationNext onClick={() => setCurrentPage(p => Math.min(p + 1, totalPages))}>
-        Siguiente
-      </PaginationNext>
+        {/* Botón Next */}
+        <PaginationNext onClick={() => setCurrentPage(p => Math.min(p + 1, totalPages))}
+          className={currentPage === totalPages ? "pointer-events-none opacity-50" // Deshabilitado si está en la última
+            : "cursor-pointer hover:bg-muted"
+          }
+        >
+          Siguiente
+        </PaginationNext>
+
+      </PaginationContent>
     </Pagination>
   )
 }
