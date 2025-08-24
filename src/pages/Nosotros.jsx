@@ -4,6 +4,7 @@ import FoundSection from '@/components/nosotros/FoundSection'
 import MissionSection from '@/components/nosotros/MissionSection'
 import StatsSection from '@/components/nosotros/StatsSection'
 import ValueSection from '@/components/nosotros/ValueSection'
+import WhatsappButton from '@/components/WhatsappButton'
 import React from 'react'
 
 const Nosotros = () => {
@@ -30,6 +31,7 @@ const Nosotros = () => {
       <EquipSection />
       <MissionSection />
       <FoundSection />
+      <WhatsappButton/>
     </>
   )
 }
