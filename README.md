@@ -30,3 +30,10 @@ Una aplicación **SPA** moderna construida con React y Vite para la gestión de 
 - 🗄️ **MySQL** – Base de datos alojada en **Railway**.
 
 > ⚠️ Este repositorio solo aloja **Frontend**
+
+---
+
+## 🚀 Proyecto en Producción
+
+🎉 El proyecto está desplegado y listo para ser explorado.  
+👉 Accedé desde aquí: [Ir a la App Web](https://carwashpro.vercel.app)
